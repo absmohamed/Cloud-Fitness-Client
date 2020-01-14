@@ -1,6 +1,7 @@
 import React from 'react';
 import "./pricing.css";
-import Price from '../media/price.jpg'
+import { Link } from 'react-router-dom';
+import Price from '../media/price.jpg';
 
 
 
@@ -15,7 +16,6 @@ function Pricing({history}) {
             <form>
                 <imput type="submit" name="Services" className="button is-info" onClick={showServices}></imput>
             </form>
-           
         </div>
     );
 };

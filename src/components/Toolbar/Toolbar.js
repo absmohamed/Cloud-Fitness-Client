@@ -1,30 +1,31 @@
 import React from "react";
-import "./Toolbar.css";
+import "./Toolbar.scss";
 import { Link } from 'react-router-dom';
+import Logo from "../media/logo.png"
 
 const toolbar = props => (
     <header className="toolbar">
         <nav className="toolbar_navigation">
             <div className="toolbar_logo">
-            <Link to="/"> Cloud Fitness </Link>
+            <Link to="/"> <img className="logo" src={Logo} alt="" /> </Link>
             </div>
             <div className="spacer"></div>
             <div className="toolbar_navigation-items">
                 <ul>
                     <Link to="/services">
-                        <li> Services </li>
+                        <li> SERVICES </li>
                     </Link>
                     <Link to="/pricing">
-                        <li> Pricing</li>
+                        <li> PRICING</li>
                     </Link>
-                    <Link>
-                        <li> Book a session </li>
+                    <Link to="bookings/">
+                        <li> BOOK </li>
                     </Link>
                     <Link to="/about">
-                        <li> About </li>
+                        <li> ABOUT </li>
                     </Link>
                     <Link to="/contact">
-                        <li> Contact </li>
+                        <li> CONTACT </li>
                     </Link>
                 </ul>
             </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import "./services.css";
+import "./services.scss";
 import { Link } from 'react-router-dom';
 import Flexandrelax from '../media/flexandrelax.jpg'
 import Strength from '../media/strength.jpg'

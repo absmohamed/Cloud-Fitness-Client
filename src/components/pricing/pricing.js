@@ -1,5 +1,5 @@
 import React from 'react';
-import "./pricing.css";
+import "./pricing.scss";
 import { Link } from 'react-router-dom';
 import Price from '../media/price.jpg';
 
@@ -14,7 +14,9 @@ function Pricing({history}) {
             <h1> The Pricing page </h1>
             <img src={Price} alt="pricing" />
             <form>
-                <imput type="submit" name="Services" className="button is-info" onClick={showServices}></imput>
+                <Link to="/bookings">
+                <button> Book a session </button>
+                </Link>
             </form>
         </div>
     );

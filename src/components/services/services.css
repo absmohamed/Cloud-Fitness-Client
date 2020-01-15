@@ -1,28 +1,75 @@
 .parent {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  -ms-grid-rows: (1fr)[3];
+      grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
 }
-    .flexandrelaxdiv1 { grid-area: 1 / 1 / 2 / 2; }
-    .flexandrelaxdiv2 { grid-area: 1 / 2 / 2 / 3; }
-    .strengthdiv3 { grid-area: 2 / 1 / 3 / 2; }
-    .strengthdiv4 { grid-area: 2 / 2 / 3 / 3; }
-    .aerobicdiv5 { grid-area: 3 / 1 / 4 / 2; }
-    .aerobicdiv6 { grid-area: 3 / 2 / 4 / 3; }
+
+.flexandrelaxdiv1 {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.flexandrelaxdiv2 {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-area: 1 / 2 / 2 / 3;
+}
+
+.strengthdiv3 {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-area: 2 / 1 / 3 / 2;
+}
+
+.strengthdiv4 {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-area: 2 / 2 / 3 / 3;
+}
+
+.aerobicdiv5 {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-area: 3 / 1 / 4 / 2;
+}
+
+.aerobicdiv6 {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-area: 3 / 2 / 4 / 3;
+}
 
 .parent img {
-    border-style: none;
-    align-items: center;
-    width: 0;
-    padding: 0;
-    width: 400px;
-    height: 300px;
+  border-style: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 0;
+  padding: 0;
+  width: 400px;
+  height: 300px;
 }
 
-.parent p{
-    letter-spacing: 0.3em;
-    font-stretch: expanded;
+.parent p {
+  letter-spacing: 0.3em;
+  font-stretch: expanded;
 }
-
+/*# sourceMappingURL=services.css.map */

@@ -45,8 +45,7 @@ const NewBooking = (props) => {
                 value={this.state.time}
                 />
             </div>
-            <div>
-             <select>  
+            <div> 
             <select>
                 <option value="duration">20</option>
                 <option selected value="duration">30</option>

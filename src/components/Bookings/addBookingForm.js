@@ -1,27 +1,21 @@
 const NewBooking = (props) => {
     const {AddNewBooking} = props
-        super(props);
-        this.state = {
-            service: 'String',
-            level: 'String',
-            participants: 'String',
-            dob: new Date(),
-            date: new Date(),
-            time: '10:00',
-            duration: Number,
-            contact: "string",
-            payment: Number,
-
-        }
+     
 
     //Pass props with history back to callback function
     function addBooking(event) {
-        AddNewBooking(event,props)
+        addNewBooking(event,props)
     }
+
+    function onTimeChange(time) {
+        setCurrentTime(time)
+
+    }
+    const [currentTime,setCurrentTime] = useState(Date.now)
     return (
         <section className="page-container">
         <h2>Title</h2>
-        <form onSubmit={addBlogPost}>
+        <form onSubmit={addBooking}>
             <div>
             <h4>Workout Type</h4>
             <select>
@@ -41,8 +35,8 @@ const NewBooking = (props) => {
             <h4>Time</h4>
             <div>
                 <TimePicker
-                onChange={this.onChange}
-                value={this.state.time}
+                onChange={onTimeChange}
+                value={currentTime}
                 />
             </div>
             <div> 

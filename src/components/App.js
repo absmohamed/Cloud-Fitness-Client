@@ -5,7 +5,8 @@ import Toolbar from "./Toolbar/Toolbar";
 import Services from "./services/services";
 import About from "./about/about";
 import Pricing from "./pricing/pricing";
-import Contact from "./contact/contact"
+import Contact from "./contact/contact";
+import AddBookingForm from "./Bookings/addBookingForm";
 
 
 
@@ -22,6 +23,7 @@ function App() {
           <Route path="/services" component={Services} /> 
           <Route path="/pricing" component={Pricing} /> 
           <Route path="/contact" component={Contact} /> 
+          <Route path="/booking" component={AddBookingForm} />
         </Switch>
         </main>
     </div>

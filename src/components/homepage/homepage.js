@@ -1,7 +1,6 @@
 import React from 'react';
 import "./homepage.scss";
 import { Link } from 'react-router-dom';
-import Prama from '../media/prama.jpg';
 import Flexandrelax from '../media/flexandrelax.jpg'
 import Contact from '../contact/contact'
 

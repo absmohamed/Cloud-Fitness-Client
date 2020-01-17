@@ -9,8 +9,6 @@ import Contact from "./contact/contact";
 import Bookings from "./bookings/bookings";
 
 
-
-
 function App() {
   return (
     <div className="body">
@@ -31,5 +29,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;

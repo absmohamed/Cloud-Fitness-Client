@@ -1,5 +1,20 @@
+
 .parent {
+    margin-top: 37px;
+    padding: 12px;
+}
+
+.parent p{
+    padding: 15px;
+    letter-spacing: 0.2em;
+}
+
+
+@media only screen and (min-width: 1000px) {
+    .parent {
     display: grid;
+    margin-top:70px;
+    padding: 35px;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
     grid-column-gap: 0px;
@@ -7,22 +22,29 @@
 }
     .flexandrelaxdiv1 { grid-area: 1 / 1 / 2 / 2; }
     .flexandrelaxdiv2 { grid-area: 1 / 2 / 2 / 3; }
-    .strengthdiv3 { grid-area: 2 / 1 / 3 / 2; }
-    .strengthdiv4 { grid-area: 2 / 2 / 3 / 3; }
+    .strengthdiv4 { grid-area: 2 / 1 / 3 / 2; }
+    .strengthdiv3 { grid-area: 2 / 2 / 3 / 3; }
     .aerobicdiv5 { grid-area: 3 / 1 / 4 / 2; }
     .aerobicdiv6 { grid-area: 3 / 2 / 4 / 3; }
-
+    
 .parent img {
-    border-style: none;
-    align-items: center;
-    width: 0;
-    padding: 0;
-    width: 400px;
-    height: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 90px;
+    width: 100%;
+    box-shadow: 5px 5px 5px 5px rgba(107, 26, 194, 0);        
 }
 
 .parent p{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 80px;
+    padding: 80px;
+    width: 100%;
     letter-spacing: 0.3em;
     font-stretch: expanded;
 }
 
+}

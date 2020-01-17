@@ -10,14 +10,14 @@ function Pricing({history}) {
         history.push("/services")
     }
     return (
-        <div>
-            <h1> The Pricing page </h1>
-            <img src={Price} alt="pricing" />
-            <form>
+        <div pricing-parent-div>
+            <h1> Price </h1>
+            <img className="price-img"src={Price} alt="pricing" />
+            <div className='booking-button'>
                 <Link to="/bookings">
-                <button> Book a session </button>
+                <button className='booking-button'> BOOK A SESSION </button>
                 </Link>
-            </form>
+            </div>
         </div>
     );
 };

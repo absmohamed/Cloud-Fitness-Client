@@ -2,16 +2,19 @@ import React from 'react';
 import "./homepage.scss";
 import { Link } from 'react-router-dom';
 import Flexandrelax from '../media/flexandrelax.jpg'
-import Contact from '../contact/contact'
+// import Contact from '../contact/contact'
 
 function Homepage() {
     return (
         <div>
             <div className="prama">
                 <img className="flexandrelax" src={Flexandrelax} alt="" />
-                <Link to="/about">
-                    <div class="floatinglogo"> CLOUD FITNESS </div>
-                </Link>
+                
+                <div className="logo-name"> 
+                    <Link to="/about">
+                        CLOUD FITNESS
+                    </Link>
+                </div>   
                 <p className="quote">
                     BE THE BEST VERSION OF YOU
                 </p>
@@ -32,9 +35,9 @@ function Homepage() {
                     <p className="community"> COMMUNITY </p>
                 </Link>
             </div>
-            <div className="contact-form-container">
+            {/* <div className="contact-form-container">
                 <Contact/>
-            </div>
+            </div> */}
         </div>
     );
 };

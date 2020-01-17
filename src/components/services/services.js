@@ -14,12 +14,12 @@ function Services() {
             <p className="flexandrelax-div2">
                 Flex and Relax - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
             </p>
-            <p className="stength-div4">
-                Strength - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-            </p>
             <button onClick className="strength-div3">
                 <Link to="/shop"><img src={Strength} alt="strength" /></Link>
             </button>
+            <p className="stength-div4">
+                Strength - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+            </p>
             <button onClick className="aerobic-div5">
                 <Link to="/shop"><img src={Aerobic} alt="aerobic" /></Link>
             </button>

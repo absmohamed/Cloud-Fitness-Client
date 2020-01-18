@@ -15,7 +15,12 @@ class RegisterLogin extends Component {
                             id="email"
                             type="email"
                         />
+                        <label htmlFor="email">Email</label>
                         
+                        </div>
+
+                        <div className="row">
+                                
                         </div>
                     </form>
 

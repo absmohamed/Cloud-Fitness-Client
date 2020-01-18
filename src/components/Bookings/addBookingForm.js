@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useState} from "react";
+
 import TimePicker from 'react-time-picker/dist/entry.nostyle';
 import DatePicker from "react-datepicker"
 import { registerLocale, setDefaultLocale } from  "react-datepicker";
@@ -109,9 +110,53 @@ const addBookingForm = (props) => {
                     name="contact"
                     placeholder="best contact number please"
                 ></input>     
+            </div> 
+            <div>
+                <label className="label">Equipment Hire all items $5</label>
+                <div>
+                <label className="label">Hire One</label>
+
+                <select>
+                    <option selected value="hireOne">null</option>
+                    <option value="hireOne">skipping-rope</option>
+                    <option value="hireOne">yoga-mat</option>
+                    <option value="hireOne">dumb-bell</option>
+                    <option value="hireOne">kettle-bell</option>
+                    <option value="hireOne">medicine-ball</option>
+                </select>
+                </div>
+                <div>
+                <label className="label">Hire Two</label>
+
+                <select>
+                    <option selected value="hireTwo">null</option>
+                    <option value="hireTwo">skipping-rope</option>
+                    <option value="hireTwo">yoga-mat</option>
+                    <option value="hireTwo">dumb-bell</option>
+                    <option value="hireTwo">kettle-bell</option>
+                    <option value="hireTwo">medicine-ball</option>
+                </select>
+                </div>
+                <div>
+                <label className="label">Hire Three</label>
+
+                <select>
+                    <option selected value="hireThree">null</option>
+                    <option value="hireThree">skipping-rope</option>
+                    <option value="hireThree">yoga-mat</option>
+                    <option value="hireThree">dumb-bell</option>
+                    <option value="hireThree">kettle-bell</option>
+                    <option value="hireThree">medicine-ball</option>
+                </select>
+                </div>
+
             </div>
-            <h4>Total of your selectin: ${total}</h4><button classsName='bg-btn'>Pay Now</button>
+            <h4>Total of your selections: &#36;{totalCost}</h4><button classsName='bg-btn'>Pay Now</button>
         </form>
+        <div>
+            <button className="bg-btn">Edit</button>
+            <button className="bg-btn">Delete</button>
+        </div>
         </section>
 
     )

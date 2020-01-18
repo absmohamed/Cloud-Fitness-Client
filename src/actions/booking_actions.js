@@ -12,6 +12,11 @@ export const addNewBooking = async (bookingInfo) => {
         date: bookingInfo.date,
         time: bookingInfo.time,
         duration: bookingInfo.duaration,
+        name: bookingInfo.name,
+        email: bookingInfo.email,
+        dob: bookingInfo.date,
+        contact: bookingInfo.contact,
+        paid: bookingInfo.paid
 
     };
     try {
@@ -37,7 +42,7 @@ export const getAllBookings = async () => {
 }
 
 export const getSinglebooking = (bookings, id) {
-    const bookings = bookings.filter(booing => booking._id === id)
+    const bookings = bookings.filter(booking => booking._id === id)
     return booking[0]
 }
 
@@ -73,6 +78,36 @@ export const removeBooking = async (id) => {
 }
 
 //calcuate payment total
+export const calculatepayment = async (booking, id) => {
+    let time = req.body.time 
+    let workoutRate = 10
+    let hireRate = 5
+    let totalCost = 0
+    let duration = 0
+    let count = 0
+    const data = [{
+        lookups: [], 
+        rows: [{data: {_id: req.user._id}} ], 
+        title: "workout", 
+        columns: [{duration: req.body.time}, ],
+
+    },{
+        lookups: [],
+        rows: [{data: {_id: req.user._id}}],
+        title: "hires",
+        columns: [{hireOne: req.body.hireOne}, {hireTwo: req.body.hireTwo}]
+      }]
+
+      for (let attr of Object.keys(hires)) {
+          if (attr === null) {
+            count = count
+          } else {
+              count += 1
+          }
+
+    totalCost = (duration * rate) + (count * hireRate)
+   
+}
 
 
 module.exports = {

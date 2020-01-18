@@ -1,33 +1,39 @@
 import React from "react";
-import "./Toolbar.css";
+import "./Toolbar.scss";
 import { Link } from 'react-router-dom';
+import Logo from "../media/logo.png"
+// import { Navbar } from "react-bulma-components"
 
-const toolbar = props => (
+
+const Toolbar = props => (
     <header className="toolbar">
         <nav className="toolbar_navigation">
-            <div className="toolbar_logo"><a href="/"> Cloud Fitness</a></div>
+            <div className="toolbar_logo">
+            <Link to="/"> <img src={Logo} alt="" /> </Link>
+            </div>
             <div className="spacer"></div>
             <div className="toolbar_navigation-items">
                 <ul>
                     <Link to="/services">
-                        <li> Services </li>
+                        <li> SERVICES </li>
                     </Link>
                     <Link to="/pricing">
-                        <li> Pricing</li>
+                        <li> PRICING</li>
                     </Link>
-                    <Link>
-                        <li> Shop </li>
+                    <Link to="bookings/">
+                        <li> BOOK </li>
                     </Link>
-                    <Link to="/about">
-                        <li> About </li>
+                    {/* <Link to="/about">
+                        <li className="separate-menu"> ABOUT </li>
                     </Link>
                     <Link to="/contact">
-                        <li> Contact </li>
-                    </Link>
+                        <li className="separate-menu"> CONTACT </li>
+                    </Link> */}
+                
                 </ul>
             </div>
         </nav>
     </header>
 );
 
-export default toolbar;
+export default Toolbar;

@@ -1,16 +1,15 @@
 import React, {useState} from "react";
-
 import TimePicker from 'react-time-picker/dist/entry.nostyle';
 import DatePicker from "react-datepicker"
 import { registerLocale, setDefaultLocale } from  "react-datepicker";
-import en from 'date-fns/locale/es';
-import bookings from "./Bookings/bookings"
+import en from 'date-fns/locale/en';
+
 
 registerLocale('en', en);
 setDefaultLocale('en-GB');
 
 
-const addBookingForm = (props) => {
+const AddBookingForm = (props) => {
     const {addNewBooking} = props;
     
     //Pass props with history back to callback function
@@ -26,16 +25,12 @@ const addBookingForm = (props) => {
         setCurrentDate(date);
     }
 
-    function onDobDateChange(date) {
-        setCurrentDobDate(date);
-    }
-
     const [currentTime,setCurrentTime] = useState(Date.now);
     const [currentDate, setCurrentDate] = useState(Date.now);
-    const [currentDobDate,setCurrentDobDate] = useState(Date.now);
+    
     return (
         <section className="page-container">
-        <h2>{Title}</h2>
+        <h2>Make A Booking</h2>
         <form onSubmit={addBooking}>
             <div>
             <h4>Workout Type</h4>
@@ -97,8 +92,8 @@ const addBookingForm = (props) => {
             <div>
             <label className="aria-label">Date of Birth</label>
                 <DatePicker
-                onChange={onDobDateChange}
-                value={currentDobDate}
+                onChange={onDateChange}
+                value={currentDate}
                 />
             </div>
             <div>
@@ -151,7 +146,7 @@ const addBookingForm = (props) => {
                 </div>
 
             </div>
-            <h4>Total of your selections: &#36;{totalCost}</h4><button classsName='bg-btn'>Pay Now</button>
+            <h4>Total of your selections: &#36; Total variable</h4><button classsName='bg-btn'>Pay Now</button>
         </form>
         <div>
             <button className="bg-btn">Edit</button>

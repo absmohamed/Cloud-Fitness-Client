@@ -1,5 +1,6 @@
-import React from 'react'
+import api from "../config/api"
 import Bookings from '../components/Bookings/bookings';
+
 // import api from '../con'
 
 //Collect Data from create a booking
@@ -32,7 +33,7 @@ export const addNewBooking = async (bookingInfo) => {
 //get all bookings
 export const getAllBookings = async () => {
     try {
-        const response = await.get("/bookings")
+        const response = await api.bookings("/bookings")
         return response.data
 
     }catch (error) {
@@ -41,19 +42,19 @@ export const getAllBookings = async () => {
     }
 }
 
-export const getSinglebooking = (bookings, id) {
+export const getSinglebooking = async (bookings, id) => {
     const bookings = bookings.filter(booking => booking._id === id)
     return booking[0]
 }
 
-export const getFileteredBookings = (bookings, filters => {
+export const getFilteredBookings = async (bookings, filters) => {
     let filteredBookings = Bookings
     for(let attr of Object.keys(filters)) {
         filteredBookings = filteredBookings.filter((bookings) => booking[attr] === filters[attr])
 
     }
     return filteredBookings
-})
+}
 
 export const updateBooking = async (booking) => {
     try {
@@ -104,12 +105,7 @@ export const calculatepayment = async (booking, id) => {
           } else {
               count += 1
           }
-
+    }
     totalCost = (duration * rate) + (count * hireRate)
    
-}
-
-
-module.exports = {
-    addNewBooking
 }

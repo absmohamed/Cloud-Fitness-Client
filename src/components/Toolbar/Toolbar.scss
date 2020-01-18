@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+$font-family: 'Roboto', sans-serif;
+$letter-spacing: 0.3em;
+
+
+.body {
+    background-color: white;
+    
+}
+
+.toolbar{
+    font-family: $font-family;
+    letter-spacing: $letter-spacing;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    height: 60px;
+
+}
+
+
+
+.spacer {
+    flex: 2;
+}
+.toolbar_navigation-items ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    padding: 0;
+    display: flex;
+
+}
+
+.separate-menu li {
+    display: none;
+}
+.toolbar_navigation-items li {
+    margin: 0 20px 0px 0;
+    padding: 0 0.5rem;
+}
+
+.toolbar_navigation {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+.toolbar_navigation-items a {
+    margin-top: 50px;
+    color: black;
+    text-decoration: none;
+}
+.toolbar_logo a:hover,
+.toolbar_navigation-items a:hover,
+.toolbar_navigation-items a:active {
+    color: orangered;
+}
+
+@media only screen and (min-width: 768px) {
+    .toolbar_logo img {
+        margin-top: 100px;
+        padding:13px;
+        height: 300px;
+    }
+}
+@media only screen and (min-width: 1000px) {
+    .toolbar_logo img {
+        margin-top: 150px;
+        padding:13px;
+        height: 350px;
+    }
+}

@@ -6,7 +6,9 @@ import Services from "./services/services";
 import About from "./about/about";
 import Pricing from "./pricing/pricing";
 import Contact from "./contact/contact";
+import AddBookingForm from "./Bookings/addBookingForm";
 import Bookings from "./bookings/bookings";
+
 
 
 function App() {
@@ -16,16 +18,15 @@ function App() {
       <div className="App">
         <Toolbar/>
           <Switch>
-            <Route exact path="/" component={Homepage} />
-            <Route path="/about" component={About} /> 
-            <Route path="/services" component={Services} /> 
-            <Route path="/bookings" component={Bookings} /> 
-            <Route path="/pricing" component={Pricing} /> 
-            <Route path="/contact" component={Contact} /> 
-          </Switch>
+          <Route exact path="/" component={Homepage} />
+          <Route path="/about" component={About} /> 
+          <Route path="/services" component={Services} /> 
+          <Route path="/pricing" component={Pricing} /> 
+          <Route path="/contact" component={Contact} /> 
+          <Route path="/booking" component={AddBookingForm} />
+        </Switch>
       </div>
       </Router>
-      
     </div>
   );
 }

@@ -11,6 +11,7 @@ import Services from "./services/services";
 import About from "./about/about";
 import Pricing from "./pricing/pricing";
 import Contact from "./contact/contact";
+import AddBookingForm from "./Bookings/addBookingForm";
 import Bookings from "./bookings/bookings";
 import Footer from "./footer/Footer";
 import Register from './auth/Register';
@@ -52,12 +53,12 @@ function App() {
             <Route path="/contact" component={Contact} /> 
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
+            <Route path="/booking" component={AddBookingForm} />
 
           </Switch>
           <Footer />
       </div>
       </Router>
-      
     </div>
     </Provider>
   );

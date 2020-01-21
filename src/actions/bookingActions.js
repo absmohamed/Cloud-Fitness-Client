@@ -42,15 +42,15 @@ export const getAllBookings = async () => {
     }
 }
 
-export const getSinglebooking = async (bookings, id) => {
+export const getSingleBooking = async (bookings, id) => {
     const bookings = bookings.filter(booking => booking._id === id)
     return booking[0]
 }
 
-export const getFilteredBookings = async (bookings, filters) => {
-    let filteredBookings = Bookings
+export const getFilteredBookings = async (Bookings, filters) => {
+    let filteredBookings = bookings
     for(let attr of Object.keys(filters)) {
-        filteredBookings = filteredBookings.filter((bookings) => booking[attr] === filters[attr])
+        filteredBookings = filteredBookings.filter((Bookings) => booking[attr] === filters[attr])
 
     }
     return filteredBookings
@@ -79,33 +79,34 @@ export const removeBooking = async (id) => {
 }
 
 //calcuate payment total
-export const calculatepayment = async (booking, id) => {
-    let time = req.body.time 
+export const calculatepayment = async (id) => {
     let workoutRate = 10
     let hireRate = 5
     let totalCost = 0
     let duration = 0
     let count = 0
-    const data = [{
-        lookups: [], 
-        rows: [{data: {_id: req.user._id}} ], 
-        title: "workout", 
-        columns: [{duration: req.body.time}, ],
+    try {
+        const booking = await api.get(`/bookings/${id}`)
+        duration = booking.duration
+        const hireOne = booking.hireOne
+        const hireTwo = booking.hireTwo
+        const hireThree = booking.hireThree
+        if (hireOne) count++
+        if (hireTwo) count++
+        if (hireThree) count++
+        totalCost = (duration * workoutRate) + (count * hireRate) 
+    }catch(error){
+        console.log(`Eror calculating the payment rate: ${error}`)
 
-    },{
-        lookups: [],
-        rows: [{data: {_id: req.user._id}}],
-        title: "hires",
-        columns: [{hireOne: req.body.hireOne}, {hireTwo: req.body.hireTwo}]
-      }]
-
-      for (let attr of Object.keys(hires)) {
-          if (attr === null) {
-            count = count
-          } else {
-              count += 1
-          }
     }
-    totalCost = (duration * rate) + (count * hireRate)
-   
+    return totalCost
+}
+
+export const updateBookingInBookingsArray = (bookings, updatedBooking) => {
+    return bookings.map((booking) => {
+        if(booking._id === updatedBooking._id) {
+            return updatedBooking
+        }
+        return booking
+    })
 }

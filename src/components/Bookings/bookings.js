@@ -8,7 +8,7 @@ import '../../bookingActions.js'
 function Bookings() {
     return (
         <div>
-            <h1> The About page </h1>
+            <h1> The Bookings page </h1>
         </div>
     );
 };

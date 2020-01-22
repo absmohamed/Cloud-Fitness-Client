@@ -11,12 +11,10 @@ import Services from "./services/services";
 import About from "./about/about";
 import Pricing from "./pricing/pricing";
 import Contact from "./contact/contact";
-import AddBookingForm from "./Bookings/addBookingForm";
-import Bookings from "./bookings/bookings";
+// import AddBookingForm from "./Bookings/addBookingForm";
 import Footer from "./footer/Footer";
 import Register from './auth/Register';
 import Login from './auth/Login';
-
 // Checking for token. If local storage.jwt token exists, we set the Auth token header auth that'll take in the token stored in local storage. Then we decode token and get the user info and expiration.
 if(localStorage.jwtToken) {
   // Set Auth Token Header auth
@@ -25,7 +23,6 @@ if(localStorage.jwtToken) {
   const decoded = jwt_decode(localStorage.jwtToken);
   // Calling setCurrentUser action. Set user and isAuthenticated.
   store.dispatch(setCurrentUser(decoded));
-
   // Check for expired token
   const currentTime = Date.now() / 1000;
   if(decoded.exp < currentTime) {
@@ -48,13 +45,11 @@ function App() {
             <Route exact path="/" component={Homepage} />
             <Route path="/about" component={About} /> 
             <Route path="/services" component={Services} /> 
-            <Route path="/bookings" component={Bookings} /> 
             <Route path="/pricing" component={Pricing} /> 
             <Route path="/contact" component={Contact} /> 
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
-            <Route path="/booking" component={AddBookingForm} />
-
+            {/* <Route path="/booking" component={AddBookingForm} /> */}
           </Switch>
           <Footer />
       </div>
@@ -63,6 +58,7 @@ function App() {
     </Provider>
   );
 }
-
-
 export default App;
+
+
+

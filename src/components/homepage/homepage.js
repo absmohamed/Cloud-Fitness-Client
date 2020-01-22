@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import "./homepage.scss";
 import { Link } from 'react-router-dom';
-import Flexandrelax from '../media/flexandrelax.jpg'
+import Frontpic from '../media/frontpic.jpg'
+import Bottompic from '../media/bottompic.jpg'
 // import Contact from '../contact/contact'
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
@@ -18,13 +19,10 @@ class homepage extends Component {
         return (
             <div>
                 <div className="prama">
-                    <img className="flexandrelax" src={Flexandrelax} alt="" />
-                    
-                    <div className="logo-name"> 
+                <img className="flexandrelax" src={Bottompic} alt="" /> 
                         <Link to="/about">
-                            CLOUD FITNESS
+                        <div className="logo-name">CLOUD FITNESS</div>   
                         </Link>
-                    </div>   
                     <p className="quote">
                         BE THE BEST VERSION OF YOU
                     </p>
@@ -45,9 +43,22 @@ class homepage extends Component {
                         <p className="community"> COMMUNITY </p>
                     </Link>
                 </div>
+                <img className="flexandrelax" src={Frontpic} alt="" /> 
                 {/* <div className="contact-form-container">
                     <Contact/>
                 </div> */}
+                <div className="about">
+                    <Link to="/about">
+                    <p className="about-us-title">ABOUT US</p> 
+                    </Link>
+                        <p className="about-us">LOREM IPSUM IS SIMPLY DUMMY TEXT OF THE PRINTING AND TYPESETTING INDUSTRY. LOREM IPSUM HAS BEEN THE INDUSTRY'S STANDARD DUMMY TEXT EVER SINCE THE 1500S, WHEN AN UNKNOWN PRINTER TOOK A GALLEY OF TYPE AND SCRAMBLED IT TO MAKE A TYPE SPECIMEN BOOK. 
+                        </p>
+                    <Link to="/about">
+                    <p className="about-us-title-2">OUR MISSION</p>
+                    </Link>
+                        <p className="about-us-2">LOREM IPSUM IS SIMPLY DUMMY TEXT OF THE PRINTING AND TYPESETTING INDUSTRY. LOREM IPSUM HAS BEEN THE INDUSTRY'S STANDARD DUMMY TEXT EVER SINCE THE 1500S, WHEN AN UNKNOWN PRINTER TOOK A GALLEY OF TYPE AND SCRAMBLED IT TO MAKE A TYPE SPECIMEN BOOK. 
+                        </p>
+                </div> 
             </div>
         );
     }

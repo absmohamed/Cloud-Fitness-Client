@@ -9,10 +9,10 @@ $letter-spacing: 0.3em;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 90px;
+    margin-top: 0px;
     width: 100%;
     box-shadow: 5px 5px 5px 5px rgba(107, 26, 194, 0);
-    
+
 }
 .logo-name {
     display: none;
@@ -25,28 +25,28 @@ $letter-spacing: 0.3em;
     word-spacing: 0.4em;
     font-size: 1em;
     font-family: $font-family;
-    top: 40%;
-    left: 38%;
+    top: 36%;
+    left: 40%;
 }
     .logo-button {
-        box-shadow:inset 0px 1px 0px 0px #ffffff;
-        background:linear-gradient(to bottom, #f9f9f9 5%, #e9e9e9 100%);
-        background-color:#f9f9f9;
+        // box-shadow:inset 0px 1px 0px 0px #ffffff;
+        // background:linear-gradient(to bottom, #f9f9f9 5%, #e9e9e9 100%);
+        background-color:#00ffea;
         border-radius:6px;
         font-family: $font-family;
         border:1px solid #dcdcdc;
         display:inline-block;
         cursor:pointer;
-        color: rgb(255, 60, 0);
-        font-size:12px;
-        font-weight:bold;
-        padding:3px 5px;
+        color: rgb(0, 0, 0);
+        font-size: 10px;
         text-decoration:none;
-        text-shadow:0px 1px 0px #ffffff;
+        border: none;
+        text-shadow: 0px 2px 4px #727272;
+
     }
     .logo-button:hover {
-        background:linear-gradient(to bottom, #e9e9e9 5%, #f9f9f9 100%);
-        background-color:#e9e9e9;
+        background:linear-gradient(to bottom, #494444 5%, #615e5e 100%);
+        background-color:#3d3939;
     }
     .logo-botton:active {
         position:relative;
@@ -59,19 +59,14 @@ $letter-spacing: 0.3em;
     letter-spacing: 0.2em;
     word-spacing: 0.7em;
     font-size: 0.5em;
-    color: rgb(44, 41, 41);
+    color: rgb(255, 254, 254);
     font-family: $font-family;
-    top:38%;
+    top:34.5%;
     left: 50%;
     transform: translate(-50%, -50%);
     
 }
 
-.container a:link, a:active a:hover
-{
-    text-decoration: none;
-    color: orange;
-} 
 
 .container p {
     display: flex;
@@ -80,20 +75,34 @@ $letter-spacing: 0.3em;
     font-display: $font-family;
     word-spacing: 0.2em;
     letter-spacing: 0.3em;
-    color: rgb(0, 0, 0);
+    color: rgb(43, 179, 167);
     justify-content: center;
-    box-shadow: 30px 30px 30px rgba(0, 0, 0, 0.20);
+    box-shadow: 5px 5px 30px 0px rgba(94,94,94,0.63);
+    text-shadow:1px 1px 4px #828080;
+
+}
+
+.container p:hover {
+    color:rgb(4, 4, 4);
+}
+@media only screen and (min-width: 414px) {
+    .quote {
+        top: 32.5%;
+    }
+    .logo-button {
+        top:34%;
+        font-size: 10px;
+    }
 }
 
 @media only screen and (min-width: 768px) {
     .logo-name {
-    // display: block;
     position: absolute;
     text-decoration: none;
     box-shadow: 30px 50px 40px rgba(0, 0, 0, 0.20);
     letter-spacing: 0.2em;
     font-size: 2.5em;
-    top: 35%;
+    top: 38%;
     left: 51%;
     color: rgb(108, 104, 104);
   }
@@ -103,12 +112,12 @@ $letter-spacing: 0.3em;
     letter-spacing: 0.2em;
     word-spacing: 0.5em;
     font-size: 0.9em;
-    top:38%;
-    left: 50%;
+    top:30%;
   }
     
     .logo-button {
         font-size: 14px;
+        top: 32%;
         left: 41%;
     }
     .container p {
@@ -118,37 +127,94 @@ $letter-spacing: 0.3em;
 }
 
 
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 1025px) {
     .logo-name {
         display: block;
-        position: absolute;
         text-decoration: none;
-        box-shadow: 30px 50px 40px rgba(0, 0, 0, 0.20);
+        box-shadow: 15px 50px 40px 30px rgba(0, 0, 0, 0.20);
         letter-spacing: 0.4em;
         font-size: 3em;
-        color: rgb(85, 78, 78);
+        font-weight: bold;
+        color: rgb(255, 255, 255);
         font-family: $font-family;
-        top: 65%;
+        top: 43%;
         left: 53%;
         transform: translate(-50%, -50%);
-        color: rgb(108, 104, 104);
+        text-shadow:3px 5px 7px #2e2e2e;
+
     }
     .quote {
-        position: absolute;
         letter-spacing: 0.2em;
         word-spacing: 0.5em;
         font-size: 1.1em;
-        top: 75%;
+        top: 50%;
         left: 52%;
+        font-weight: 200;
+        text-shadow:0px 3px 4px #000000;
+
       }
     .logo-button {
         font-size: 16px;
-        letter-spacing: 0.3em;
-        top:79%;
-        left: 46%;
+        letter-spacing: 0.2em;
+        top:53%;
+        left: 47%;
     }
     .container p {
-        padding: 23px;
+        padding: 110px;
         font-size: 1.6em;
     }
-}
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 2fr 2fr;
+        padding: 50px;
+        grid-column-gap: 50px;
+        grid-row-gap: 80px;
+        grid-template-areas: "servicesdiv1 bookingsdiv2" "amenities community";
+      }
+      
+      .servicesdiv1 { grid-area: servicesdiv1;
+        height: 300px;}
+      
+      .bookingsdiv2 { grid-area: bookingsdiv2; 
+        height: 300px;}
+      
+      .amenities { grid-area: amenities; 
+        height: 300px;}
+      
+      .community { grid-area: community; 
+        height: 300px;}
+    }
+
+    .about {
+        position: absolute;
+        text-shadow:0px 1px 1px #ffffff;
+        display: grid;
+        top:200%;
+        text-decoration: none;
+        padding: 100px;
+        grid-row-gap: 0;
+        color: rgb(70, 57, 57);
+        word-spacing: 7px;
+        letter-spacing: 0.2em;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 2fr 2fr;
+        grid-column-gap: 350px;
+        grid-template-areas: "about-us-title about-us-title-2" "about-us about-us-2";
+      }
+      
+      .about-us-title { grid-area: about-us-title; 
+        font-weight: 500;
+        padding-top: 180px;
+        font-size: 1.5em;
+      }
+      
+      .about-us-title-2 { grid-area: about-us-title-2;
+        font-weight: 500;
+        padding-top: 180px;
+        font-size: 1.5em;
+    }
+      
+      .about-us { grid-area: about-us;}
+      
+      .about-us { grid-area: about-us-2;}

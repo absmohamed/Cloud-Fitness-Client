@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
 import { loginUser } from '../../actions/authActions';
-
+import './login.scss'
 class Login extends Component {
         // Component state. Adding constructor to our class.
         constructor() {
@@ -26,15 +26,12 @@ class Login extends Component {
                 this.props.history.push('/dashboard');
             }
         }
-
         // Creating our life-cycle method componentWillReceiveProps
         componentWillReceiveProps(nextProps) {
             if(nextProps.auth.isAuthenticated) {
                 // Redirect to dashboard
                 this.props.history.push('/dashboard');
             }
-
-
             if(nextProps.errors) {
                 this.setState({errors: nextProps.errors});
             }
@@ -56,15 +53,13 @@ class Login extends Component {
             this.props.loginUser(userData);
         }
     render() {
-
         const { errors } = this.state;
-
         return (
             <div className="login">
-                <div className="container">
+                {/* <div className="container"> */}
                     <div className="row">
-                        <h1 className="text-center">Log In</h1>
-                        <p className="lead text-center">Log in to access your account</p>
+                        {/* <h1 className="text-center">Log In</h1> */}
+                        <p className="lead text-center">LOG IN TO ACCESS YOUR ACCOUNT</p>
                         <form onSubmit={this.onSubmit}>
                         <div className="form-group">
                             <input
@@ -94,15 +89,14 @@ class Login extends Component {
                         />
                         {errors.password && (<div className="invalid-feedback">{errors.password}</div>)}
                     </div>
-                        <input type="submit" className="btn btn-info" />
+                        <input type="submit" className="submit-btn" />
                 </form>
                 </div>
-            </div>
+            {/* </div> */}
         </div>
         )
     }
 }
-
 Login.propTypes = {
     loginUser: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
@@ -112,5 +106,6 @@ const mapStateToProps = (state) => ({
     auth: state.auth,
     errors: state.errors
 })
-
 export default connect(mapStateToProps, { loginUser })(Login);
+
+

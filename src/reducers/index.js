@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux';
+// For the size of our application we want multiple reducers
 
-import user from './user_reducer';
+import authReducer from './authReducer';
+import errorReducer from './errorReducer';
 
-const rootReducer = combineReducers({
-    user
-})
-
-export default rootReducer;
+export default combineReducers({
+    auth: authReducer,
+    errors: errorReducer
+});

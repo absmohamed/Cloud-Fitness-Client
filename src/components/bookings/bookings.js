@@ -1,10 +1,10 @@
 import React from 'react';
-import "./bookings.scss";
+import "./Bookings.css";
 
 function Bookings() {
     return (
         <div>
-            <h1> The bookings page </h1>
+            <h1> The Bookings page </h1>
         </div>
     );
 };

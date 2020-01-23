@@ -1,18 +1,17 @@
-import React, {useState, Fragment} from "react";
-import { useGlobalState } from "../../config/store"
-import TimePicker from "react-time-picker/dist/entry.nostyle";
+import React, {useState, Fragment} from "react"
+import TimePicker from "react-time-picker/dist/entry.nostyle"
 import DatePicker from "react-datepicker"
-import { registerLocale, setDefaultLocale } from  "react-datepicker";
-import en from 'date-fns/locale/en';
-import { addNewBooking, calculatePayment} from "../../actions/bookingActions"
-import Booking from "./booking";
+import { registerLocale, setDefaultLocale } from  "react-datepicker"
+import en from 'date-fns/locale/en'
+import { calculatePayment} from "../../actions/bookingActions"
 
-
+var totalCost = 0
+var Booking = null
 registerLocale('en', en);
 setDefaultLocale('en-GB');
 
 
-const addBookingForm = (props) => {
+const AddBookingForm = (props) => {
     const {addNewBooking} = props;
     
     //Pass props with history back to callback function
@@ -180,4 +179,4 @@ const addBookingForm = (props) => {
     )
 }
 
-export default addBookingForm
+export default AddBookingForm

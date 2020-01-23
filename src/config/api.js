@@ -1,4 +1,3 @@
-import axiso from 'axiso'
 import Axios from 'axios'
 
 const deployedServer = ''

@@ -1,8 +1,7 @@
 import api from "../config/api"
-import Bookings from '../components/Bookings/booking';
+import Bookings from "../components/Bookings/bookings";
 
-
-// import api from '../con'
+var totalCost = 0
 
 //Collect Data from create a booking
 export const addNewBooking = async (bookingInfo) => {
@@ -44,14 +43,15 @@ export const getAllBookings = async () => {
 }
 
 export const getSingleBooking = async (bookings, id) => {
-    const bookings = bookings.filter(booking => booking._id === id)
-    return booking[0]
+   
+    let booking = bookings.filter( booking => booking._id === id)
+    return booking
 }
 
 export const getFilteredBookings = async (Bookings, filters) => {
-    let filteredBookings = bookings
+    let filteredBookings = Bookings
     for(let attr of Object.keys(filters)) {
-        filteredBookings = filteredBookings.filter((Bookings) => booking[attr] === filters[attr])
+         filteredBookings = Bookings.filter((Booking) => Booking[attr] === filters[attr])
 
     }
     return filteredBookings
@@ -69,9 +69,13 @@ export const updateBooking = async (booking) => {
     }
 }
 
+
+
+
+
 export const removeBooking = async (id) => {
     try {
-        await api.delete(`/bookings/${_id}`)
+        await api.delete(`/bookings/${id}`)
     }
     catch (error) {
         console.log("Error deleting [booking:", error)
@@ -83,7 +87,6 @@ export const removeBooking = async (id) => {
 export const calculatePayment = async (id) => {
     let workoutRate = 10
     let hireRate = 5
-    let totalCost = 0
     let duration = 0
     let count = 0
     try {
@@ -106,7 +109,6 @@ export const calculatePayment = async (id) => {
 export const recalcutlatePayment = async (id, payment) => {
     let workoutRate = 10
     let hireRate = 5
-    let totalCost = 0
     let duration = 0
     let count = 0
     try {
@@ -120,10 +122,10 @@ export const recalcutlatePayment = async (id, payment) => {
         if (hireTwo) count++
         if (hireThree) count++
         totalCost = (duration * workoutRate) + (count * hireRate)
-        if (totalCost > payemnt) {
-            totalCost - payment
-        } else (totalCost < Payment) {
-            payment - totalCost
+        if (totalCost > payment) {
+            totalCost = totalCost - payment
+        } else if (totalCost < payment) {
+            totalCost = payment - totalCost
         }
     }catch(error){
         console.log(`Error recalculating the payment rate: ${error}`)
@@ -136,9 +138,9 @@ export const refundPayment = async (id, payment) => {
     try {
         const booking = await api.delete(`/bookings/${id}`)
         payment = booking.payment
-        refundPayment === payment
+        refundPayment = payment
     }catch(error){
-        cosole.log(`Error processing your refund payment amount`)
+        console.log(`Error processing your refund payment amount`)
     }
     return refundPayment
 }

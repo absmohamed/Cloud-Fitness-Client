@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { useGlobalState } from "../config/Store" //needs adding
+import { useGlobalState } from "../config/Store" 
 import TimePicker from 'react-time-picker/dist/entry.nostyle';
 import DatePicker from "react-datepicker"
 import { registerLocale, setDefaultLocale } from  "react-datepicker";
@@ -16,7 +16,6 @@ setDefaultLocale('en-GB');
 const EditBookingForm = ({match, history}) => {
     const { store, dispatch } = useGlobalState()
     const { booking, loggedInUser } = store
-
     const id = match.params ? match.params.id : null
     const booking = getSingleBooking(bookings, id)
 
@@ -45,6 +44,7 @@ const EditBookingForm = ({match, history}) => {
 
     const [currentTime,setCurrentTime] = useState(Date.now);
     const [currentDate, setCurrentDate] = useState(Date.now);
+    const { service, paid, modified_date} = Bookings
 
     function editBooking(event) {
         event.preventDefault()
@@ -62,7 +62,8 @@ const EditBookingForm = ({match, history}) => {
             hireOne: form.hireOne.value,
             hireTwo: form.hireTwo.value,
             hireThree: form.hireThree.value,
-            paid: form.paid.value
+            paid: form.paid.value,
+            payment: form.payment.vale
 
         }
 
@@ -99,7 +100,10 @@ const EditBookingForm = ({match, history}) => {
         <section>
         <form data-cy="editBookingForm" onSubmit={editBooking}>
             <h2>Edit Booking</h2>
-            <Heading data-cy={service}>{service}</Heading>
+            <h2 data-cy="service">{service}</h2>
+            <p data-cy="modified_date">{modified_date}</p>
+            <p data-cy="paid">{paid}</p>
+
             <div>
             <label className="label">Service</label>
             <select>
@@ -245,14 +249,16 @@ const EditBookingForm = ({match, history}) => {
             </div>
         </div>
         <div>
+            <p>Please make payment of your selections before submitting your bookings</p><button  data-cy="recalculate-payment"  value={totalCost} onClick={() => recalculatePayment}>Recalculating Payment</button> 
+            <p>Your Total: &#36; {total}</p><button classsName='bg-btn'>Pay Now</button>
+            <p data-cy="paid">Paid: {paid}</p>
             <input
-                data-cy="editButton"
-                type="submit"
-                value="Update Post"
-                className="button is-info"
-        ></input>
-        </div>
-        <h4>Total of your selections: &#36; Total variable</h4><button classsName='bg-btn'>Pay Now</button>
+				type="submit"
+				data-cy="addButton"
+				value="Create Post"
+				className="button is-info"
+			>Submit Booking</input>
+            </div>
         </form>
         <div>
             <button className="bg-btn">Delete</button>

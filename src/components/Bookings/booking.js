@@ -1,13 +1,9 @@
-import React, { Fragment, useState } from "react"
+import React, { Fragment } from "react"
 import { Link } from 'react-router-dom'
 import { useGlobalState } from "../config/Store" //needs adding
 import TimeAgo from react-timeago
-import TimePicker from 'react-time-picker/dist/entry.nostyle';
-import DatePicker from "react-datepicker"
-import { registerLocale, setDefaultLocale } from  "react-datepicker";
-import en from 'date-fns/locale/en';
-import { removeBooking } from "../../bookingActions.js"
-import Booking from ".bookings";
+import { removeBooking, refundPayment } from "../../bookingActions.js"
+
 
 registerLocale('en', en);
 setDefaultLocale('en-GB');
@@ -16,7 +12,7 @@ const Booking = props => {
     function deleteBooking(id) {
         //delete the book on the server
         removeBooking(id).then(() => {
-            const booking = Bookings.filter((booking) => booking._id !== id)
+            const Bookings = Bookings.filter((booking) => booking._id !== id);
             //Update the state
             dispatch ({
                 type: "setBookings",
@@ -38,11 +34,12 @@ const Booking = props => {
     return (
         <Fragment>
             <section className="content">
-                <Link to {`/bookings/${_id}`}>
+                <Link to={`/bookings/${_id}`}>
                     <Heading data-cy={service}>{service}</Heading>
                 </Link> 
                 <p>{username}</p>
                 <p><TimeAgo date={modified_date}/></p> 
+                <p>{service}</p>
                 <p>{level}</p>
                 <p>{date}</p>
                 <p>{time}</p>
@@ -53,11 +50,13 @@ const Booking = props => {
                 <p>{hireOne}</p>
                 <p>{hireTwo}</p>
                 <p>{hireThree}</p>
-                <p>{paid}</p> 
+                <p>{paid}</p>
+                <p>{payment}</p> 
             </section>
             {showEditDelete && (
                 <div className="level-right">
                     <Button className="add-margin" color="info" data-cy="editButton" onClick={() => props.history.push(`/bookings/edit/${_id}`)}>Edit</Button>
+                    <Button className="add=margin" color="info" data-cy="refundPayment" onClick={()=> refundPayment}>Refund Payment</Button>
                     <Button className="add-margin" color="info" data-cy="deleteButton" onClick={() => deleteBooking(_id)}>Delete</Button>
                 </div>
             )}
@@ -66,4 +65,4 @@ const Booking = props => {
     )
 }
 
-export default
+export default Booking

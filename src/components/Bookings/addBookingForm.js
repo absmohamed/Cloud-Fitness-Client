@@ -1,15 +1,18 @@
 import React, {useState, Fragment} from "react";
-import TimePicker from 'react-time-picker/dist/entry.nostyle';
+import { useGlobalState } from "../../config/store"
+import TimePicker from "react-time-picker/dist/entry.nostyle";
 import DatePicker from "react-datepicker"
 import { registerLocale, setDefaultLocale } from  "react-datepicker";
 import en from 'date-fns/locale/en';
+import { addNewBooking, calculatePayment} from "../../actions/bookingActions"
+import Booking from "./booking";
 
 
 registerLocale('en', en);
 setDefaultLocale('en-GB');
 
 
-const AddBookingForm = (props) => {
+const addBookingForm = (props) => {
     const {addNewBooking} = props;
     
     //Pass props with history back to callback function
@@ -27,13 +30,14 @@ const AddBookingForm = (props) => {
 
     const [currentTime,setCurrentTime] = useState(Date.now);
     const [currentDate, setCurrentDate] = useState(Date.now);
-    
+    const {service, paid} = Booking
+    const total = totalCost
     return (
         <Fragment>
         <section className="content">
         <h1>Make A Booking</h1>
-        <Heading data-cy={service}>{service}</Heading>
-        <form onSubmit={addBooking}>
+        <h2 data-cy="service">{service}</h2>
+        <form data-cy="addBookingForm" onSubmit={addBooking}>
             <div>
             <h4>Workout Type</h4>
             <select>
@@ -154,11 +158,21 @@ const AddBookingForm = (props) => {
                 </div>
 
             </div>
-            <h4>Total of your selections: &#36; Total variable</h4><button classsName='bg-btn'>Pay Now</button>
+            <div>
+            <p>Please make payment of your selections before submitting your bookings</p><button  data-cy="calculate-payment"  value={totalCost} onClick={() => calculatePayment}>Total Selections</button> 
+            <p>Your Total: &#36; {total}</p><button classsName='bg-btn'>Pay Now</button>
+            <p data-cy="paid">Paid: {paid}</p>
+            <input
+				type="submit"
+				data-cy="addButton"
+				value="Create Post"
+				className="button is-info"
+			>Submit Booking</input>
+            </div>
         </form>
         <div>
-            <button className="bg-btn">Edit</button>
-            <button className="bg-btn">Delete</button>
+            <button className="bg-btn" data-cy="editButton">Edit</button>
+            <button className="bg-btn" data-cy="deleteButton">Delete</button>
         </div>
         </section>
         </Fragment>
@@ -166,4 +180,4 @@ const AddBookingForm = (props) => {
     )
 }
 
-export default AddBookingForm
+export default addBookingForm

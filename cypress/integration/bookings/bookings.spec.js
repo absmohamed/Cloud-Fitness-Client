@@ -58,7 +58,10 @@ describe("Add a Booking", () => {
         cy.get("[data-cy=contact]").type(fixtures.newBooking.contact)
         cy.get("[data-cy=hireOne]").type(fixtures.newBooking.hireOne)
         cy.get("[data-cy=hireTwo]").type(fixtures.newBooking.hireTwo)
-        cy.get("[data-cy=hireThree]").type(fixtures.newBooking.hireThree) 
+        cy.get("[data-cy=hireThree]").type(fixtures.newBooking.hireThree)
+        cy.get("[data-cy=paid]").type(fixtures.newBooking.paid)
+        cy.get("[data-cy=payment]").type(fixtures.newBooking.payment)
+        cy.get("[data-cy=refundPayment]").type(fixtures.newBooking.refundPayment) 
         cy.get("[data-cy=payButton]").click()
         //verify new booking was added
         cy.root().should("contain", fixtures.newBooking.service)

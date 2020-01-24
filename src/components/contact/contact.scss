@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+$font-family: 'Roboto', sans-serif;
+
+.contact-form {
+    display: flex;
+    justify-content: center;
+    font-size: 0.8em;
+    letter-spacing: 0.2em;
+    padding: 30px;
+    margin-top: 100px; 
+    word-spacing: 10px;  
+    font-family: $font-family;
+    font-weight: 900;
+}
+
+.contact-form input, textarea {
+    width: 100%; /* Full width */
+    padding: 12px; /* Some padding */ 
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    resize: vertical;
+}
+
+.contact-button {
+    margin-top: 15px;
+	background-color:#4b4b4b;
+	border-radius:42px;
+	border:3px solid #292829;
+    display:inline-block;
+    letter-spacing: 0.2em;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:$font-family;
+	font-size:15px;
+	padding:5px 10px;
+	text-decoration:none;
+	text-shadow:0px 0px 23px #566154;
+}
+.contact-button:hover {
+	background-color:#5cbf2a;
+}
+.contact-button:active {
+	position:relative;
+	top:1px;
+}
+@media only screen and (min-width: 768px) {
+    .contact-form {
+        padding-top: 150px; 
+    }
+}
+@media only screen and (min-width: 1200px) {
+    .contact-form {
+        padding-top: 50px; 
+    }
+}

@@ -4,15 +4,12 @@
 $font-family: 'Roboto', sans-serif;
 $letter-spacing: 0.3em;
 
-.pricing-parent-div h1 {
-    align-content: center;
-    letter-spacing: 0.3em;
-}
 
 .price-img {
-    margin: 20px;
+    margin: 10px;
 }
 .pricing-parent-div {
+    margin-top: 80px;
     padding: 50px;
 
 }
@@ -65,13 +62,9 @@ $letter-spacing: 0.3em;
 }
 
 @media only screen and (min-width: 1200px) {
-    .price-img {
-        padding: 80px;
-
-    }
 
     .booking-button {
-        top: 165%;
+        top: 180%;
         left: 46%;
     }
 

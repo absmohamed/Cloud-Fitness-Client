@@ -62,7 +62,7 @@ function App() {
             {/* <Route path="/booking" component={AddBookingForm} /> */}
 
           </Switch>
-          <Footer />
+          {/* <Footer /> */}
       </div>
       </Router>
     </div>

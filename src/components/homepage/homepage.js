@@ -3,9 +3,12 @@ import "./homepage.scss";
 import { Link } from 'react-router-dom';
 import Frontpic from '../media/frontpic.jpg'
 import Bottompic from '../media/bottompic.jpg'
+import Dumbbell from '../media/dumbbell.png'
 // import Contact from '../contact/contact'
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
+
+
 
 class homepage extends Component {
     // If the user is logged in, this will take it to the dashboard instead of the home page
@@ -19,7 +22,7 @@ class homepage extends Component {
         return (
             <div>
                 <div className="prama">
-                <img className="flexandrelax" src={Bottompic} alt="" /> 
+                    <img className="front-pic" src={Bottompic} alt="" /> 
                         <Link to="/about">
                         <div className="logo-name">CLOUD FITNESS</div>   
                         </Link>
@@ -31,7 +34,8 @@ class homepage extends Component {
                 {/* <iframe className="ytvideo" width="560" height="315" src="https://www.youtube.com/embed/uMQqnqGzgHM?controls=0&amp;start=25" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
                 <div className="container">
                     <Link to="/services">
-                        <p className="servicesdiv1"> SERVICES</p>
+                        <p className="servicesdiv1"> SERVICES
+                        </p>
                     </Link>
                     <Link to="/about">
                         <p className="bookingsdiv2"> BUY A PASS </p>

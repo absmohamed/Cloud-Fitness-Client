@@ -28,7 +28,7 @@ class Toolbar extends Component {
         )
 
         const guestLinks = (
-            <ul>
+            <ul id="reg-log">
                 <Link to="/register">
                     <li> SIGN UP</li>
                 </Link>
@@ -66,17 +66,17 @@ class Toolbar extends Component {
                             <Link to="bookings/">
                                 <li> BOOK </li>
                             </Link>
+                            <Link to="/about">
+                                <li className="separate-menu"> ABOUT </li>
+                            </Link>
+                            <Link to="/contact">
+                                <li className="separate-menu"> CONTACT </li>
+                            </Link>
                             {/* <Link to="register/">
                                 <li> REGISTER </li>
                             </Link> */}
                             {/* Added a ternary, if isAuthenticated, then we display authLinks, else we display guestLinks   */}
                             {isAuthenticated ? authLinks : guestLinks}                   
-                            {/* <Link to="/about">
-                                <li className="separate-menu"> ABOUT </li>
-                            </Link>
-                            <Link to="/contact">
-                                <li className="separate-menu"> CONTACT </li>
-                            </Link> */}
                         
                         </ul>
                     </div>

@@ -3,12 +3,13 @@
 $font-family: 'Roboto', sans-serif;
 
 .login {
+    padding: 40px;
     display: flex;
     justify-content: center;
-    font-size: 0.8em;
+    font-size: 0.9em;
     letter-spacing: 0.2em;
-    margin: 20px; 
-    word-spacing: 10px;  
+    margin-top: 50px; 
+    word-spacing: 7px;  
     font-family: $font-family;
 }
 
@@ -32,29 +33,26 @@ $font-family: 'Roboto', sans-serif;
 
 }
 .submit-btn {
-    box-shadow:inset 0px 1px 0px 0px #ffffff;
-    background:linear-gradient(to bottom, #f9f9f9 5%, #e9e9e9 100%);
-    background-color:#00d0ff;
-    border-radius:6px;
-    transition-duration: 0.4s;
-    letter-spacing: 0.1em;
-    font-family: $font-family;
-    border:1px solid #dcdcdc;
+    margin-top: 15px;
+	background-color:#4b4b4b;
+	border-radius:42px;
+	border:3px solid #292829;
     display:inline-block;
-    cursor:pointer;
-    color: rgb(56, 58, 60);
-    font-size: 10px;
-    font-weight:bold;
-    padding:3px 5px;
-    text-shadow:0px 1px 0px #ffffff;
+    letter-spacing: 0.2em;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:$font-family;
+	font-size:15px;
+	padding:5px 10px;
+	text-decoration:none;
+	text-shadow:0px 0px 23px #566154;
 }
 .submit-btn:hover {
-    background:linear-gradient(to bottom, #e9e9e9 5%, #f9f9f9 100%);
-    background-color: blue;
+	background-color:#5cbf2a;
 }
 .submit-btn:active {
-    position:relative;
-    top:1px;
+	position:relative;
+	top:1px;
 }
 
 .invalid-feedback {
@@ -66,10 +64,14 @@ $font-family: 'Roboto', sans-serif;
 
 @media only screen and (min-width: 768px) {
     .login {
-        justify-content: left;
+        padding-top: 70px;
         padding-left: 20px;
         border: 0;
         // box-shadow: 30px 30px 30px rgba(0, 0, 0, 0.20);
+    }
+    .lead-text-center {
+        font-size: 1.5em;
+        margin: 40px;
     }
 }
 

@@ -31,7 +31,6 @@ if(localStorage.jwtToken) {
   const decoded = jwt_decode(localStorage.jwtToken);
   // Calling setCurrentUser action. Set user and isAuthenticated.
   store.dispatch(setCurrentUser(decoded));
-
   // Check for expired token
   const currentTime = Date.now() / 1000;
   if(decoded.exp < currentTime) {
@@ -54,7 +53,6 @@ function App() {
             <Route exact path="/" component={Homepage} />
             <Route path="/about" component={About} /> 
             <Route path="/services" component={Services} /> 
-            <Route path="/bookings" component={Bookings} /> 
             <Route path="/pricing" component={Pricing} /> 
             <Route path="/contact" component={Contact} /> 
             <Route exact path="/register" component={Register} />
@@ -71,6 +69,7 @@ function App() {
     </Provider>
   );
 }
-
-
 export default App;
+
+
+

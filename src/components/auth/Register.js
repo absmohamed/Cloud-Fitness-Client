@@ -6,6 +6,9 @@ import { connect } from 'react-redux';
 import { registerUser } from '../../actions/authActions';
 import TextFieldGroup from '../common/TextFieldGroup';
 
+import './register.scss'
+
+
 class Register extends Component {
     // Component state. Adding constructor to our class.
     constructor() {
@@ -63,13 +66,10 @@ class Register extends Component {
     render() {
         // If we have errors it will be in this.state.errors
         const errors = this.state.errors;
-
         return (
             <div className="register">
-                <div className="container">
-                    <div className="row">
-                    <h1 className="text-center">Sign Up</h1>
-                    <p className="lead text-center">Create your gym membership account</p>
+                <div className="row">
+                    <p className="text-center">CREATE YOUR GYM MEMBERSHIP</p>
                     <form noValidate onSubmit={this.onSubmit}>
                         <TextFieldGroup 
                                 placeholder="Name"
@@ -115,9 +115,9 @@ class Register extends Component {
 
                         />
                         <input type="submit" className="btn btn-info" />
+
                     </form>
                     </div>
-                </div>
             </div>
         )
     }

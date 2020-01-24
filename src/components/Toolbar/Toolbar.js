@@ -23,7 +23,7 @@ class Toolbar extends Component {
         const authLinks = (
             // onLogoutClick is the function above
             <ul>
-                <a href="" onClick={this.onLogoutClick.bind(this)}>Logout</a>
+                <li onClick={this.onLogoutClick.bind(this)}>Logout </li> 
             </ul>
         )
 
@@ -41,13 +41,22 @@ class Toolbar extends Component {
 
         return (
             <header className="toolbar">
-                <nav className="toolbar_navigation">
-                    <div className="toolbar_logo">
+                <nav role="navigation" className="toolbar_navigation">
+                    {/* <div className="toolbar_logo">
                         <Link to="/"> <img src={Logo} alt="" /> </Link>
-                    </div>
+                    </div> */}
                     <div className="spacer"></div>
-                    <div className="toolbar_navigation-items">
-                        <ul>
+                    <div id="menuToggle">
+                    <input type="checkbox" />
+                        <span></span>
+                        <span></span>
+                        <span></span>
+    
+                        <ul id="menu">
+                            <li id="menu-title">MENU</li>
+                            <Link to="/">
+                                <li> HOME </li>
+                            </Link>
                             <Link to="/services">
                                 <li> SERVICES </li>
                             </Link>
@@ -57,6 +66,9 @@ class Toolbar extends Component {
                             <Link to="bookings/">
                                 <li> BOOK </li>
                             </Link>
+                            {/* <Link to="register/">
+                                <li> REGISTER </li>
+                            </Link> */}
                             {/* Added a ternary, if isAuthenticated, then we display authLinks, else we display guestLinks   */}
                             {isAuthenticated ? authLinks : guestLinks}                   
                             {/* <Link to="/about">

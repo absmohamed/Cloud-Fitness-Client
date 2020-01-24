@@ -7,7 +7,8 @@ import en from 'date-fns/locale/en';
 import {
     updateBooking,
     getSingleBooking,
-    updateBookingInBookingsArray
+    updateBookingInBookingsArray,
+    recalculatePayment
 } from "../../bookingActions"
 
 registerLocale('en', en);

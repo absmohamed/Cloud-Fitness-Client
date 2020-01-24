@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
-import classnames from 'classnames';
 // Whenever we use redux in a component, we import connect
 import { connect } from 'react-redux';
 import { registerUser } from '../../actions/authActions';
+import TextFieldGroup from '../common/TextFieldGroup';
+
 import './register.scss'
 
 
@@ -70,74 +71,50 @@ class Register extends Component {
                 <div className="row">
                     <p className="text-center">CREATE YOUR GYM MEMBERSHIP</p>
                     <form noValidate onSubmit={this.onSubmit}>
-                    <div className="form-group">
-                        <input
-                        type="text"
-                        className={classnames('form-control', {
-                        'is-invalid': errors.name
-                        })}
-                        placeholder="Name"
-                        name="name"
-                        value={this.state.name}
-                        // onChange allows us to type in to the inputs
-                        onChange={this.onChange}
+                        <TextFieldGroup 
+                                placeholder="Name"
+                                name="name"
+                                value={this.state.name}
+                                onChange={this.onChange}
+                                error={errors.name}
+
                         />
-                    {errors.name && (<div className="invalid-feedback">{errors.name}</div>)}
-                    </div>
-                    <div className="form-group">
-                        <input
-                        type="text"
-                        className={classnames('form-control', {
-                        'is-invalid': errors.lastname
-                         })}
-                        placeholder="Last Name"
-                        name="lastname"
-                        value={this.state.lastname}
-                        // onChange allows us to type in to the inputs
-                        onChange={this.onChange}
+                        <TextFieldGroup 
+                            placeholder="Last Name"
+                            name="lastname"
+                            value={this.state.lastname}
+                            onChange={this.onChange}
+                            error={errors.lastname}
+
                         />
-                        {errors.lastname && (<div className="invalid-feedback">{errors.lastname}</div>)}  
-                    </div>
-                    <div className="form-group">
-                        <input
-                        type="email"
-                        className={classnames('form-control', {
-                       'is-invalid': errors.email
-                        })}
-                        placeholder="Email Address"
-                        name="email"
-                       value={this.state.email}
-                        // onChange allows us to type in to the inputs
-                        onChange={this.onChange}
+                        <TextFieldGroup 
+                            placeholder="Email Address"
+                            name="email"
+                            type="email"
+                            value={this.state.email}
+                            onChange={this.onChange}
+                            error={errors.email}
+
                         />
-                        {errors.email && (<div className="invalid-feedback">{errors.email}</div>)}
-                    </div>
-                    <div className="form-group">
-                        <input
-                        type="password"
-                        className={classnames('form-control', {
-                        'is-invalid': errors.password
-                        })}                                
-                        placeholder="Password"
-                        name="password"
-                        value={this.state.password}
-                        // onChange allows us to type in to the inputs
-                        onChange={this.onChange}
+                        <TextFieldGroup 
+                            placeholder="Password"
+                            name="password"
+                            type="password"
+                            value={this.state.password}
+                            onChange={this.onChange}
+                            error={errors.password}
+
                         />
-                        {errors.password && (<div className="invalid-feedback">{errors.password}</div>)}
-                    </div>
-                    <div className="form-group">
-                        <input
-                        type="password"
-                        className={classnames('form-control', {
-                        'is-invalid': errors.password2
-                        })}                                
-                        placeholder="Confirm Password"
-                        name="password2"
-                        value={this.state.password2}
-                        // onChange allows us to type in to the inputs
-                        onChange={this.onChange}
+                        <TextFieldGroup 
+                            placeholder="Confirm Password"
+                            name="password2"
+                            type="password"
+                            value={this.state.password2}
+                            onChange={this.onChange}
+                            error={errors.password2}
+
                         />
+
                         {errors.password2 && (<div className="invalid-feedback">{errors.password2}</div>)}
                     </div>
                         <input type="submit" className="reg-btn" />

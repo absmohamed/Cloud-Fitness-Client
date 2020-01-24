@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
 $font-family: 'Roboto', sans-serif;
-$letter-spacing: 0.3em;
+$letter-spacing: 0.2em;
 
 
 
@@ -11,17 +11,16 @@ $letter-spacing: 0.3em;
     letter-spacing: $letter-spacing;
     top: 0;
     left: 0;
-    width: 100%;
+    // width: 100%;
     display: block;
     position: absolute;
-    top: 50px;
-    left: 50px;
-    
+    top: 23px;
+    left: 15px;
     z-index: 1;
-    
     -webkit-user-select: none;
     user-select: none;
 }
+
 
 #menuToggle a
 {
@@ -30,12 +29,6 @@ $letter-spacing: 0.3em;
   
   transition: color 0.3s ease;
 }
-
-#menuToggle a:hover
-{
-  color: rgb(26, 230, 227);
-}
-
 
 #menuToggle input
 {
@@ -62,7 +55,7 @@ $letter-spacing: 0.3em;
   margin-bottom: 5px;
   position: relative;
   
-  background: #ffffff;
+  background: #000000;
   border-radius: 3px;
   
   z-index: 1;
@@ -92,7 +85,7 @@ $letter-spacing: 0.3em;
 {
   opacity: 1;
   transform: rotate(45deg) translate(-2px, -1px);
-  background: #a17e7e;
+  background: #573d3d;
 }
 
 /*
@@ -119,9 +112,9 @@ $letter-spacing: 0.3em;
   width: 300px;
   margin: -100px 0 0 -50px;
   padding: 75px;
-  padding-top: 125px;
+  padding-top: 110px;
   
-  background: #fcfcfc;
+  background: #ffffff;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
   /* to stop flickering of text in safari */
@@ -132,19 +125,73 @@ $letter-spacing: 0.3em;
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
 }
 #menu-title{
-    color: gray;
+    color: rgb(105, 102, 102);
     border-bottom: 1px solid rgb(213, 201, 201);
 }
+#reg-log
+  {
+   border-top: 1px solid rgb(213, 201, 201);
+}
+
+
 
 #menu li
 {
   padding: 19px 0;
-  font-size: 14.7px;
-
-
+  font-size: 15px;
 }
 
 #menuToggle input:checked ~ ul
 {
   transform: none;
+}
+@media only screen and (min-width: 768px) {
+  #menuToggle{
+    display: block;
+    position: absolute;
+    top: 55px;
+    left: 50px;
+  }
+  #menu li
+  {
+    padding: 35px 0;
+    font-size: 17px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  #menuToggle {
+    display: block;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    opacity: 0.9;
+}
+  #menu li
+  {
+    padding: 50px 7px;
+    font-size: 25px;
+  }
+}
+@media only screen and (min-width: 1025px) {
+  #menuToggle {
+      display: block;
+      position: absolute;
+      top: 50px;
+      left: 50px;
+      opacity: 0.9;
+  }
+
+
+  #menuToggle a:hover
+  {
+    color: rgb(26, 230, 227);
+  }
+
+
+  #menu li
+  {
+    padding: 20px 0;
+    font-size: 14.7px;
+  }
+
 }

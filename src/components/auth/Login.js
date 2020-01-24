@@ -59,7 +59,7 @@ class Login extends Component {
                 {/* <div className="container"> */}
                     <div className="row">
                         {/* <h1 className="text-center">Log In</h1> */}
-                        <p className="lead text-center">LOG IN TO ACCESS YOUR ACCOUNT</p>
+                        <p className="lead-text-center">LOG IN TO ACCESS YOUR ACCOUNT</p>
                         <form onSubmit={this.onSubmit}>
                         <div className="form-group">
                             <input

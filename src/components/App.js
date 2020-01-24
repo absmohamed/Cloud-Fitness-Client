@@ -12,7 +12,7 @@ import About from "./about/about";
 import Pricing from "./pricing/pricing";
 import Contact from "./contact/contact";
 // import AddBookingForm from "./Bookings/addBookingForm";
-import Footer from "./footer/Footer";
+// import Footer from "./footer/Footer";
 import Register from './auth/Register';
 import Login from './auth/Login';
 // Checking for token. If local storage.jwt token exists, we set the Auth token header auth that'll take in the token stored in local storage. Then we decode token and get the user info and expiration.
@@ -51,7 +51,7 @@ function App() {
             <Route exact path="/login" component={Login} />
             {/* <Route path="/booking" component={AddBookingForm} /> */}
           </Switch>
-          <Footer />
+          {/* <Footer /> */}
       </div>
       </Router>
     </div>

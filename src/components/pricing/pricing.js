@@ -6,12 +6,9 @@ import Price from '../media/price.jpg';
 
 
 function Pricing({history}) {
-    function showServices () {
-        history.push("/services")
-    }
+
     return (
-        <div pricing-parent-div>
-            <h1> Price </h1>
+        <div className="pricing-parent-div">
             <img className="price-img"src={Price} alt="pricing" />
             <div className='booking-button'>
                 <Link to="/bookings">

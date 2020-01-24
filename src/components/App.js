@@ -3,19 +3,25 @@ import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import jwt_decode from 'jwt-decode';
 import setAuthToken from '../utilities/setAuthToken';
 import { setCurrentUser, logoutUser } from '../actions/authActions';
+import { clearCurrentProfile } from '../actions/profileActions';
 import { Provider } from 'react-redux';
 import store from '../store'
+
+import PrivateRoute from './common/PrivateRoute';
+
 import Toolbar from "./Toolbar/Toolbar";
 import Homepage from "./homepage/homepage";
 import Services from "./services/services";
 import About from "./about/about";
 import Pricing from "./pricing/pricing";
 import Contact from "./contact/contact";
-import AddBookingForm from "./Bookings/addBookingForm";
+// import AddBookingForm from "./Bookings/addBookingForm";
 import Bookings from "./bookings/bookings";
 import Footer from "./footer/Footer";
 import Register from './auth/Register';
 import Login from './auth/Login';
+import Dashboard from './dashboard/Dashboard';
+import CreateProfile from './create-profile/CreateProfile';
 
 // Checking for token. If local storage.jwt token exists, we set the Auth token header auth that'll take in the token stored in local storage. Then we decode token and get the user info and expiration.
 if(localStorage.jwtToken) {
@@ -31,8 +37,8 @@ if(localStorage.jwtToken) {
   if(decoded.exp < currentTime) {
     // Logout the user
     store.dispatch(logoutUser());
-    // TODO: Clear the current profile
-    
+    // Clear the current profile
+    store.dispatch(clearCurrentProfile());
     // Redirect to login
     window.location.href = '/login';
   }
@@ -53,7 +59,9 @@ function App() {
             <Route path="/contact" component={Contact} /> 
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
-            <Route path="/booking" component={AddBookingForm} />
+            <PrivateRoute exact path="/dashboard" component={Dashboard} />
+            <PrivateRoute exact path="/create-profile" component={CreateProfile} />
+            {/* <Route path="/booking" component={AddBookingForm} /> */}
 
           </Switch>
           <Footer />

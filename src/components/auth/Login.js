@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import classnames from 'classnames';
 import { loginUser } from '../../actions/authActions';
+import TextFieldGroup from '../common/TextFieldGroup';
+
 import './login.scss'
+
 class Login extends Component {
         // Component state. Adding constructor to our class.
         constructor() {
@@ -61,39 +63,32 @@ class Login extends Component {
                         {/* <h1 className="text-center">Log In</h1> */}
                         <p className="lead text-center">LOG IN TO ACCESS YOUR ACCOUNT</p>
                         <form onSubmit={this.onSubmit}>
-                        <div className="form-group">
-                            <input
-                                type="email"
-                                className={classnames('form-control', {
-                                    'is-invalid': errors.email
-                                })}
-                                placeholder="Email Address"
-                                name="email"
-                                value={this.state.email}
-                                // onChange allows us to type in to the inputs
-                                onChange={this.onChange}
-                            />
-                            {errors.email && (<div className="invalid-feedback">{errors.email}</div>)}
-                    </div>
-                    <div className="form-group">
-                        <input
-                            type="password"
-                            className={classnames('form-control', {
-                                'is-invalid': errors.password
-                            })} 
+
+                        <TextFieldGroup 
+                            placeholder="Email Address"
+                            name="email"
+                            type="email"
+                            value={this.state.email}
+                            onChange={this.onChange}
+                            error={errors.email}
+
+                        />
+
+                        <TextFieldGroup 
                             placeholder="Password"
                             name="password"
+                            type="password"
                             value={this.state.password}
-                            // onChange allows us to type in to the inputs
                             onChange={this.onChange}
+                            error={errors.password}
+
                         />
-                        {errors.password && (<div className="invalid-feedback">{errors.password}</div>)}
+                        <input type="submit" className="btn btn-info" />
+                    </form>
                     </div>
-                        <input type="submit" className="submit-btn" />
-                </form>
                 </div>
-            {/* </div> */}
-        </div>
+            </div>
+
         )
     }
 }

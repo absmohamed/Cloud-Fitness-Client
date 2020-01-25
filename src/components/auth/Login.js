@@ -86,7 +86,6 @@ class Login extends Component {
                         <input type="submit" className="btn btn-info" />
                     </form>
                     </div>
-                </div>
             </div>
 
         )

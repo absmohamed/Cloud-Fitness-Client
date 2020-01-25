@@ -23,6 +23,9 @@ class Toolbar extends Component {
         const authLinks = (
             // onLogoutClick is the function above
             <ul>
+                <Link to="/dashboard ">
+                    <li> Dashboard</li>
+                </Link>
                 <a href="" onClick={this.onLogoutClick.bind(this)}>Logout</a>
             </ul>
         )

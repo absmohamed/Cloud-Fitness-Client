@@ -114,14 +114,8 @@ class Register extends Component {
                             error={errors.password2}
 
                         />
-<<<<<<< HEAD
-                        {errors.password2 && (<div className="invalid-feedback">{errors.password2}</div>)}
-                    </div>
                         <input type="submit" className="reg-btn" />
-=======
-                        <input type="submit" className="btn btn-info" />
 
->>>>>>> cd39a318af050d2ec5053470a225026a6182da19
                     </form>
                     </div>
             </div>

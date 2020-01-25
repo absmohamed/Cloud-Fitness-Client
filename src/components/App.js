@@ -16,12 +16,7 @@ import About from "./about/about";
 import Pricing from "./pricing/pricing";
 import Contact from "./contact/contact";
 // import AddBookingForm from "./Bookings/addBookingForm";
-<<<<<<< HEAD
-// import Footer from "./footer/Footer";
-=======
-import Bookings from "./bookings/bookings";
 import Footer from "./footer/Footer";
->>>>>>> cd39a318af050d2ec5053470a225026a6182da19
 import Register from './auth/Register';
 import Login from './auth/Login';
 import Dashboard from './dashboard/Dashboard';

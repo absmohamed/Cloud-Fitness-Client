@@ -66,4 +66,4 @@ const Booking = props => {
     )
 }
 
-export default
+// export default;

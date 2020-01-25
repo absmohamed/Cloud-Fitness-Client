@@ -17,9 +17,9 @@ beforeEach(() => {
 })
 
 describe("Login", () => {
-	it("should route to /auth/login", () => {
+	it("should route to /users/auth/login", () => {
 		cy.get("[data-cy=login]").click()
-		cy.url().should("include", "/auth/login")
+		cy.url().should("include", "/users/auth/login")
 	})
 	it("should render SignIn component", () => {
 		cy.get("[data-cy=login]").click()
@@ -28,6 +28,7 @@ describe("Login", () => {
 	it("can login", () => {
 		cy.get("[data-cy=login]").click()
 		cy.get("[data-cy=username]").type(fixtures.registeredUser.username)
+		cy.get("[data-cy=email]").type(fixtures.registeredUser.email) //depends on login form
 		cy.get("[data-cy=password]").type(fixtures.registeredUser.password)
 		cy.get("[data-cy=loginButton").click()
 		cy.url().should("include", "/bookings")
@@ -38,6 +39,7 @@ describe("Logout", () => {
 	it("should logout user", () => {
 		cy.get("[data-cy=login]").click()
 		cy.get("[data-cy=username]").type(fixtures.registeredUser.username)
+		cy.get("[data-cy=email]").type(fixtures.registeredUser.email) //depends on login form
 		cy.get("[data-cy=password]").type(fixtures.registeredUser.password)
 		cy.get("[data-cy=loginButton").click()
 		cy.get("[data-cy=logout]").click()

@@ -15,16 +15,13 @@ import Services from "./services/services";
 import About from "./about/about";
 import Pricing from "./pricing/pricing";
 import Contact from "./contact/contact";
-// import AddBookingForm from "./Bookings/addBookingForm";
-<<<<<<< HEAD
-=======
 import Bookings from "./bookings/bookings";
->>>>>>> c23314fd9ae00fff60b8c30696b7868ff298dcfa
 import Footer from "./footer/Footer";
 import Register from './auth/Register';
 import Login from './auth/Login';
 import Dashboard from './dashboard/Dashboard';
 import CreateProfile from './create-profile/CreateProfile';
+import EditProfile from './edit-profile/EditProfile';
 
 // Checking for token. If local storage.jwt token exists, we set the Auth token header auth that'll take in the token stored in local storage. Then we decode token and get the user info and expiration.
 if(localStorage.jwtToken) {
@@ -65,7 +62,13 @@ function App() {
             {/* <Route path="/booking" component={AddBookingForm} /> */}
 
           </Switch>
-          {/* <Footer /> */}
+          <Switch>
+          <PrivateRoute 
+            exact path="/edit-profile"
+            component={CreateProfile}
+          />
+          </Switch>
+          <Footer />
       </div>
       </Router>
     </div>

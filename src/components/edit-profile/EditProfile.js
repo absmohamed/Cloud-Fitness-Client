@@ -6,7 +6,11 @@ import TextFieldGroup from '../common/TextFieldGroup';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
 import InputGroup from '../common/InputGroup';
 import SelectListGroup from '../common/SelectListGroup';
-import {createProfile} from '../../actions/profileActions'
+import {createProfile, getCurrentProfile} from '../../actions/profileActions'
+import {isEmpty} from '../../validation/is-empty';
+
+
+
 
 class CreateProfile extends Component {
     constructor(props) {
@@ -31,9 +35,47 @@ class CreateProfile extends Component {
         this.onSubmit = this.onSubmit.bind(this);
 
     }
+
+    componentDidMount() {
+        this.props.getCurrentProfile();
+    }
     componentWillReceiveProps(nextProps){
         if(nextProps.err) {
             this.setState({errors: nextProps.errors});
+        }
+        // Checking to see if profile has come in from the state
+        // If next props. the profile state. the actual profile inside the state
+        if(nextProps.profile.profile) {
+            const profile = nextProps.profile.profile;
+            // If the User doesn't have a something field filled in their profile, we need to check that and if it's not we need to make it an empty string.
+            
+            // If profile field doesn't exist, make empty string
+            profile.location = !isEmpty(profile.company) ? profile.location : '';
+            profile.bio = !isEmpty(profile.bio) ? profile.bio : '';
+            // If profile social doesn't exist, make it an empty object
+            profile.social = !isEmpty(profile.social) ? profile.social : {};
+            profile.facebook = !isEmpty(profile.social.facebook) ? profile.social.facebook : '';
+            profile.twitter = !isEmpty(profile.social.twitter) ? profile.social.twitter : '';
+            profile.instagram = !isEmpty(profile.social.instagram) ? profile.social.instagram : '';
+            profile.youtube = !isEmpty(profile.social.youtube) ? profile.social.youtube : '';
+
+
+            // SET COMPONENT FIELDS STATE
+            this.setState({
+            handle: this.state.handle,
+            level: this.state.level,
+            height: this.state.height,
+            weight: this.state.weight,
+            handle: this.state.handle,
+            gender: this.state.gender,
+            location: this.state.location,
+            contact: this.state.contact,
+            bio: this.state.bio,
+            facebook: this.state.facebook,
+            twitter: this.state.twitter,
+            instagram: this.state.instagram,
+            youtube: this.state.youtube
+            })
         }
     }
     onSubmit(e) {
@@ -123,11 +165,10 @@ class CreateProfile extends Component {
 
 
         return (
-            <div className="create-profile">
+            <div className="edit-profile">
                 <div className="container">
                     <div className="row">
-                        <h1>Create Your Profile</h1>
-                        <p>Let's get some information to make your profile stand out</p>
+                        <h1>Edit Your Profile</h1>
                         <small>* = required fields</small>
                         <form onSubmit={this.onSubmit}>
                             <TextFieldGroup 
@@ -155,7 +196,7 @@ class CreateProfile extends Component {
                                 value={this.state.heigh}
                                 onChange={this.onChange}
                                 error={errors.heigh}
-                                info="Please add Your height"
+                                info="Please add Your height in CM"
                                 
                             />
                             <TextFieldGroup 
@@ -192,7 +233,7 @@ class CreateProfile extends Component {
                                 value={this.state.contact}
                                 onChange={this.onChange}
                                 error={errors.contact}
-                                info="Please add Your Contact Number"
+                                info="Please add Your Contact Number Now"
                                 
                             />
                             <TextAreaFieldGroup 
@@ -226,6 +267,8 @@ class CreateProfile extends Component {
 }
 
 CreateProfile.propTypes = {
+    createProfile: PropTypes.func.isRequired,
+    getCurrentProfile: PropTypes.func.isRequired,
     profile: PropTypes.object.isRequired,
     errors: PropTypes.object.isRequired
 }
@@ -235,4 +278,4 @@ const mapStateToProps = state => ({
     errors: state.errors
 });
 
-export default connect(mapStateToProps, {createProfile})(withRouter(CreateProfile));
+export default connect(mapStateToProps, {createProfile, getCurrentProfile})(withRouter(CreateProfile));

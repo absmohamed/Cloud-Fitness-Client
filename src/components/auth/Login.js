@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { loginUser } from '../../actions/authActions';
 import TextFieldGroup from '../common/TextFieldGroup';
 
+import './login.scss'
 
 class Login extends Component {
         // Component state. Adding constructor to our class.
@@ -27,15 +28,12 @@ class Login extends Component {
                 this.props.history.push('/dashboard');
             }
         }
-
         // Creating our life-cycle method componentWillReceiveProps
         componentWillReceiveProps(nextProps) {
             if(nextProps.auth.isAuthenticated) {
                 // Redirect to dashboard
                 this.props.history.push('/dashboard');
             }
-
-
             if(nextProps.errors) {
                 this.setState({errors: nextProps.errors});
             }
@@ -57,15 +55,13 @@ class Login extends Component {
             this.props.loginUser(userData);
         }
     render() {
-
         const { errors } = this.state;
-
         return (
             <div className="login">
-                <div className="container">
+                {/* <div className="container"> */}
                     <div className="row">
-                        <h1 className="text-center">Log In</h1>
-                        <p className="lead text-center">Log in to access your account</p>
+                        {/* <h1 className="text-center">Log In</h1> */}
+                        <p className="lead-text-center">LOG IN TO ACCESS YOUR ACCOUNT</p>
                         <form onSubmit={this.onSubmit}>
 
                         <TextFieldGroup 
@@ -90,12 +86,11 @@ class Login extends Component {
                         <input type="submit" className="btn btn-info" />
                     </form>
                     </div>
-                </div>
             </div>
+
         )
     }
 }
-
 Login.propTypes = {
     loginUser: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
@@ -105,5 +100,6 @@ const mapStateToProps = (state) => ({
     auth: state.auth,
     errors: state.errors
 })
-
 export default connect(mapStateToProps, { loginUser })(Login);
+
+

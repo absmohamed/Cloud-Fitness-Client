@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+$font-family: 'Roboto', sans-serif;
+
+.login {
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    font-size: 0.9em;
+    letter-spacing: 0.2em;
+    margin-top: 50px; 
+    word-spacing: 7px;  
+    font-family: $font-family;
+}
+
+.text-center {
+    padding-bottom: 20px;
+}
+.form-group {
+    padding-bottom: 45px;
+    border-color: blue;
+}
+.form-control {
+    font-family: $font-family;
+    width: 100%;
+    border: 1px solid black; 
+    padding-top: 20px;
+    padding-bottom: 20px;
+    letter-spacing: 0.1em;
+    font-size: 1em;
+    height: 30px;
+    background:linear-gradient(to bottom, #ece8e8 5%, #fffdfd 100%);
+
+}
+.submit-btn {
+    margin-top: 15px;
+	background-color:#4b4b4b;
+	border-radius:42px;
+	border:3px solid #292829;
+    display:inline-block;
+    letter-spacing: 0.2em;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:$font-family;
+	font-size:15px;
+	padding:5px 10px;
+	text-decoration:none;
+	text-shadow:0px 0px 23px #566154;
+}
+.submit-btn:hover {
+	background-color:#5cbf2a;
+}
+.submit-btn:active {
+	position:relative;
+	top:1px;
+}
+
+.invalid-feedback {
+    margin-top: 5px;
+    letter-spacing: 0.1em;
+    word-spacing: 5px;
+    color: rgb(232, 79, 79);
+}
+
+@media only screen and (min-width: 768px) {
+    .login {
+        padding-top: 70px;
+        padding-left: 20px;
+        border: 0;
+        // box-shadow: 30px 30px 30px rgba(0, 0, 0, 0.20);
+    }
+    .lead-text-center {
+        font-size: 1.5em;
+        margin: 40px;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .login {
+        justify-content: center
+    }
+    .submit-btn {
+        font-size:12px;
+    }
+}

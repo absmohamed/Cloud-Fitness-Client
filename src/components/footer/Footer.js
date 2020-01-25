@@ -1,9 +1,9 @@
-import React from 'react'
-
-export default function Footer() {
-    return (
-        <footer className>
-                Copyright &copy; {new Date().getFullYear()} Cloud Fitness
-        </footer>   
-    )
-}
+// import React from 'react'
+// import './footer.scss'
+// export default function Footer() {
+//     return (
+//         <footer className="footer">
+//                 <div className="footer-text">Copyright &copy; {new Date().getFullYear()} Cloud Fitness</div>
+//         </footer>   
+//     )
+// }

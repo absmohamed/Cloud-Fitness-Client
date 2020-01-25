@@ -42,6 +42,17 @@
 //     }
 // }
 
+<<<<<<< HEAD
+export const getSingleBooking = async (bookings, id) => {
+    const bookings = bookings.filter(booking => booking._id === id)
+    return booking[0]
+}
+
+export const getFilteredBookings = async (Bookings, filters) => {
+    let filteredBookings = bookings
+    for(let attr of Object.keys(filters)) {
+        filteredBookings = filteredBookings.filter((Bookings) => booking[attr] === filters[attr])
+=======
 // export const getSinglebooking = async (bookings, id) => {
 //     const bookings = bookings.filter(booking => booking._id === id)
 //     return booking[0]
@@ -51,6 +62,7 @@
 //     let filteredBookings = Bookings
 //     for(let attr of Object.keys(filters)) {
 //         filteredBookings = filteredBookings.filter((bookings) => booking[attr] === filters[attr])
+>>>>>>> master
 
 //     }
 //     return filteredBookings
@@ -78,6 +90,40 @@
 //     }
 // }
 
+<<<<<<< HEAD
+//calcuate payment total
+export const calculatepayment = async (id) => {
+    let workoutRate = 10
+    let hireRate = 5
+    let totalCost = 0
+    let duration = 0
+    let count = 0
+    try {
+        const booking = await api.get(`/bookings/${id}`)
+        duration = booking.duration
+        const hireOne = booking.hireOne
+        const hireTwo = booking.hireTwo
+        const hireThree = booking.hireThree
+        if (hireOne) count++
+        if (hireTwo) count++
+        if (hireThree) count++
+        totalCost = (duration * workoutRate) + (count * hireRate) 
+    }catch(error){
+        console.log(`Eror calculating the payment rate: ${error}`)
+
+    }
+    return totalCost
+}
+
+export const updateBookingInBookingsArray = (bookings, updatedBooking) => {
+    return bookings.map((booking) => {
+        if(booking._id === updatedBooking._id) {
+            return updatedBooking
+        }
+        return booking
+    })
+}
+=======
 // //calcuate payment total
 // export const calculatepayment = async (booking, id) => {
 //     let time = req.body.time 
@@ -109,3 +155,4 @@
 //     totalCost = (duration * rate) + (count * hireRate)
    
 // }
+>>>>>>> master

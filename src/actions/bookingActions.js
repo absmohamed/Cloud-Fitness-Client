@@ -1,8 +1,6 @@
 import api from "../config/api"
 import Bookings from "../components/Bookings/bookings";
-
 var totalCost = 0
-
 //Collect Data from create a booking
 export const addNewBooking = async (bookingInfo) => {
     //calls to server to add new booking
@@ -18,7 +16,6 @@ export const addNewBooking = async (bookingInfo) => {
         dob: bookingInfo.date,
         contact: bookingInfo.contact,
         paid: bookingInfo.paid
-
     };
     try {
         const response = await api.booking('/bookings', createBooking)
@@ -29,34 +26,28 @@ export const addNewBooking = async (bookingInfo) => {
         throw(error)
     }
 }
-
 //get all bookings
 export const getAllBookings = async () => {
     try {
         const response = await api.bookings("/bookings")
         return response.data
-
     }catch (error) {
         console.log("got an error from the server fetching booking: ", error)
         throw error
     }
 }
-
 export const getSingleBooking = async (bookings, id) => {
    
     let booking = bookings.filter( booking => booking._id === id)
     return booking
 }
-
 export const getFilteredBookings = async (Bookings, filters) => {
     let filteredBookings = Bookings
     for(let attr of Object.keys(filters)) {
          filteredBookings = Bookings.filter((Booking) => Booking[attr] === filters[attr])
-
     }
     return filteredBookings
 }
-
 export const updateBooking = async (booking) => {
     try {
         const {_id} = booking
@@ -68,11 +59,6 @@ export const updateBooking = async (booking) => {
         throw (error)
     }
 }
-
-
-
-
-
 export const removeBooking = async (id) => {
     try {
         await api.delete(`/bookings/${id}`)
@@ -82,7 +68,6 @@ export const removeBooking = async (id) => {
         throw (error)
     }
 }
-
 //calcuate payment total
 export const calculatePayment = async (id) => {
     let workoutRate = 10
@@ -101,7 +86,6 @@ export const calculatePayment = async (id) => {
         totalCost = (duration * workoutRate) + (count * hireRate) 
     }catch(error){
         console.log(`Error calculating the payment rate: ${error}`)
-
     }
     return totalCost
 }
@@ -132,7 +116,6 @@ export const recalcutlatePayment = async (id, payment) => {
     }
     return totalCost
 }
-
 export const refundPayment = async (id, payment) => {
     let refundPayment = 0
     try {
@@ -144,7 +127,6 @@ export const refundPayment = async (id, payment) => {
     }
     return refundPayment
 }
-
 export const updateBookingInBookingsArray = (bookings, updatedBooking) => {
     return bookings.map((booking) => {
         if(booking._id === updatedBooking._id) {

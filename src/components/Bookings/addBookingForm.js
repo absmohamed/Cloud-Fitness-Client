@@ -4,13 +4,10 @@ import DatePicker from "react-datepicker"
 import { registerLocale, setDefaultLocale } from  "react-datepicker"
 import en from 'date-fns/locale/en'
 import { calculatePayment} from "../../actions/bookingActions"
-
 var totalCost = 0
 var Booking = null
 registerLocale('en', en);
 setDefaultLocale('en-GB');
-
-
 const AddBookingForm = (props) => {
     const {addNewBooking} = props;
     
@@ -18,15 +15,12 @@ const AddBookingForm = (props) => {
     function addBooking(event) {
         addNewBooking(event,props);
     }
-
     function onTimeChange(time) {
         setCurrentTime(time);
-
     }
     function onDateChange(date) {
         setCurrentDate(date);
     }
-
     const [currentTime,setCurrentTime] = useState(Date.now);
     const [currentDate, setCurrentDate] = useState(Date.now);
     const {service, paid} = Booking
@@ -84,11 +78,11 @@ const AddBookingForm = (props) => {
             </div>
             <label className="label">Name</label>
             <input
-				type="string"
-				className="input"
-				data-cy="name"
-				name="name"
-				placeholder="name (required)"
+                type="string"
+                className="input"
+                data-cy="name"
+                name="name"
+                placeholder="name (required)"
             ></input>
             <label className="label">Email</label>
             <input 
@@ -121,7 +115,6 @@ const AddBookingForm = (props) => {
                 <label className="label">Equipment Hire all items $5</label>
                 <div>
                 <label className="label">Hire One</label>
-
                 <select>
                 <option name="hireOne" data-cy="hireThree" selected value="null">null</option>
                 <option name="hireOne" data-cy="hireThree" value="skipping-rope">skipping-rope</option>
@@ -133,7 +126,6 @@ const AddBookingForm = (props) => {
                 </div>
                 <div>
                 <label className="label">Hire Two</label>
-
                 <select>
                     <option name="hireTwo" data-cy="hireTwo" selected value="null">null</option>
                     <option name="hireTwo" data-cy="hireTwo" value="skipping-rope">skipping-rope</option>
@@ -145,7 +137,6 @@ const AddBookingForm = (props) => {
                 </div>
                 <div>
                 <label className="label">Hire Three</label>
-
                 <select>
                     <option name="hireThree" data-cy="hireThree" selected value="null">null</option>
                     <option name="hireThree" data-cy="hireThree" value="skipping-rope">skipping-rope</option>
@@ -155,18 +146,17 @@ const AddBookingForm = (props) => {
                     <option name="hireThree" data-cy="hireThree" value="medicine-ball">medicine-ball</option>
                 </select>
                 </div>
-
             </div>
             <div>
             <p>Please make payment of your selections before submitting your bookings</p><button  data-cy="calculate-payment"  value={totalCost} onClick={() => calculatePayment}>Total Selections</button> 
             <p>Your Total: &#36; {total}</p><button classsName='bg-btn'>Pay Now</button>
             <p data-cy="paid">Paid: {paid}</p>
             <input
-				type="submit"
-				data-cy="addButton"
-				value="Create Post"
-				className="button is-info"
-			>Submit Booking</input>
+                type="submit"
+                data-cy="addButton"
+                value="Create Post"
+                className="button is-info"
+            >Submit Booking</input>
             </div>
         </form>
         <div>
@@ -175,8 +165,6 @@ const AddBookingForm = (props) => {
         </div>
         </section>
         </Fragment>
-
     )
 }
-
 export default AddBookingForm

@@ -1,4 +1,5 @@
 import React from 'react';
+import api from '../../config/api'
 import "./about.scss";
 
 function About() {

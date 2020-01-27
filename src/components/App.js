@@ -7,6 +7,7 @@ import { clearCurrentProfile } from '../actions/profileActions';
 import { Provider } from 'react-redux';
 import store from '../store'
 
+
 import PrivateRoute from './common/PrivateRoute';
 
 import Toolbar from "./Toolbar/Toolbar";
@@ -15,7 +16,9 @@ import Services from "./services/services";
 import About from "./about/about";
 import Pricing from "./pricing/pricing";
 import Contact from "./contact/contact";
-import Bookings from "./bookings/bookings";
+import Booking from "./bookings";
+import AddBookingForm from './bookings'
+import EditBookingForm from '.bookings'
 import Footer from "./footer/Footer";
 import Register from './auth/Register';
 import Login from './auth/Login';
@@ -68,6 +71,13 @@ function App() {
             component={CreateProfile}
           />
           </Switch>
+          <Switch>
+          <PrivateRoute
+            exact path="/booking/:id" component={AddBookingForm}
+            exact path="/booking/edit/:id" component={EditBookingForm}
+            exact path="/booking/delete/:id" component={Booking} 
+           />
+          </Switch>
           <Footer />
       </div>
       </Router>
@@ -76,6 +86,3 @@ function App() {
   );
 }
 export default App;
-
-
-

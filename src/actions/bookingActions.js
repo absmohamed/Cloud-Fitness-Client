@@ -1,6 +1,7 @@
-import api from "../config/api"
-import Bookings from "../components/Bookings/bookings";
+import api  from "../config/api"
+import Bookings from "../components/bookings/bookings";
 var totalCost = 0
+
 //Collect Data from create a booking
 export const addNewBooking = async (bookingInfo) => {
     //calls to server to add new booking
@@ -29,6 +30,7 @@ export const addNewBooking = async (bookingInfo) => {
 //get all bookings
 export const getAllBookings = async () => {
     try {
+        
         const response = await api.bookings("/bookings")
         return response.data
     }catch (error) {

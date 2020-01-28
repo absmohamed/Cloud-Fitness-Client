@@ -71,13 +71,13 @@ export const removeBooking = async (id) => {
     }
 }
 //calcuate payment total
-export const calculatePayment = async (id) => {
+export const calculatePayment = async ({booking}) => {
     let workoutRate = 10
     let hireRate = 5
     let duration = 0
     let count = 0
     try {
-        const booking = await api.get(`/bookings/${id}`)
+        // const booking = await api.get(`/bookings/${id}`)
         duration = booking.duration
         const hireOne = booking.hireOne
         const hireTwo = booking.hireTwo
@@ -92,7 +92,7 @@ export const calculatePayment = async (id) => {
     return totalCost
 }
 //recalculate payment when booking selection are editted
-export const recalcutlatePayment = async (id, payment) => {
+export const recalculatePayment = async (id, payment) => {
     let workoutRate = 10
     let hireRate = 5
     let duration = 0

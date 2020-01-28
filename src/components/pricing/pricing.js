@@ -1,5 +1,4 @@
 import React from 'react';
-import api from "../config/api"
 import "./pricing.scss";
 import { Link } from 'react-router-dom';
 import Price from '../media/price.jpg';

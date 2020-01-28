@@ -167,7 +167,7 @@ class CreateProfile extends Component {
                                 
                             />
                             <SelectListGroup 
-                                placeholder="Gender"
+                                placeholder="* Gender"
                                 name="gender"
                                 value={this.state.gender}
                                 onChange={this.onChange}
@@ -186,7 +186,7 @@ class CreateProfile extends Component {
                                 
                             />
                             <TextFieldGroup 
-                                placeholder="Contact"
+                                placeholder="* Contact"
                                 name="contact"
                                 value={this.state.contact}
                                 onChange={this.onChange}

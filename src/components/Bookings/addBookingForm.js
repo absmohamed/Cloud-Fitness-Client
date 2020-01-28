@@ -3,7 +3,7 @@ import TimePicker from "react-time-picker"
 import DatePicker from "react-datepicker"
 
 
-var Booking = null
+
 
 const AddBookingForm = (props) => {
     const {addNewBooking} = props;
@@ -20,13 +20,13 @@ const AddBookingForm = (props) => {
     }
     const [currentTime,setCurrentTime] = useState(Date.now);
     const [currentDate, setCurrentDate] = useState(Date.now);
-    const {service} = Booking
+   
 
     return (
         <Fragment>
         <section className="content">
         <h1>Make A Booking</h1>
-        <h2 data-cy="service">{service}</h2>
+     
         <form data-cy="addBookingForm" onSubmit={addBooking}>
             <div>
             <h4>Workout Type</h4>

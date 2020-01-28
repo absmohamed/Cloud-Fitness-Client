@@ -66,7 +66,7 @@ class Toolbar extends Component {
                             <Link to="/pricing">
                                 <li> PRICING</li>
                             </Link>
-                            <Link to="bookings/">
+                            <Link to="/bookings">
                                 <li> BOOK </li>
                             </Link>
                             <Link to="/about">

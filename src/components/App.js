@@ -59,8 +59,11 @@ function App() {
             <Route path="/contact" component={Contact} /> 
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
-            <PrivateRoute exact path="/dashboard" component={Dashboard} />
-            <PrivateRoute exact path="/create-profile" component={CreateProfile} />
+            <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/create-profile" component={CreateProfile} />
+            <Route exact path="/bookings/" component={AddBookingForm} />
+            <Route exact path="/booking/edit/:id" component={EditBookingForm} />
+            <Route exact path="/booking/delete/:id" component={Booking} />
             {/* <Route path="/booking" component={AddBookingForm} /> */}
 
           </Switch>
@@ -70,12 +73,6 @@ function App() {
             component={EditProfile}
           />
           </Switch>
-          <Switch>
-          <PrivateRoute exact path="/booking/:id" component={AddBookingForm} />
-          <PrivateRoute exact path="/booking/edit/:id" component={EditBookingForm} />
-          <PrivateRoute exact path="/booking/delete/:id" component={Booking} />
-          </Switch>
-        
       </div>
       </Router>
     </div>

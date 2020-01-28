@@ -13,7 +13,7 @@ function Services() {
                 <p className="flexandrelax-div2">
                     FLEX AND RELAX - LOREM IPSUM IS SIMPLY DUMMY TEXT OF THE PRINTING AND TYPESETTING INDUSTRY. LOREM IPSUM HAS BEEN THE INDUSTRY'S STANDARD DUMMY TEXT EVER SINCE THE 1500S
                 </p>
-            <div onClick className="strength-div3">
+            <div className="strength-div3">
                 <Link to="/shop"><img className="strength-div3"src={Strength} alt="strength" /></Link>
             </div>
             <p className="stength-div4">

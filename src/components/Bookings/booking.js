@@ -16,7 +16,7 @@ const Booking = props => {
                 data: filteredBookings
             })
             //Redirect to my Bookings
-            props.history.push(`/bookings/?username=${loggedInUser}`)
+            props.history.push(`/dashboard`)
             console.log("props history", props.history)
         }).catch((error) => {
             console.log(`An error occurred deleting the booking: ${error}`)
@@ -25,8 +25,8 @@ const Booking = props => {
     const { Bookings, getSingleBooking} = props
     const { store, dispatch } = useGlobalState()
     const { loggedInUser } = store
-    const { username, service, level, date, time, duration, name, email, contact, hireOne, hireTwo, hireThree, paid, _id, modified_date, payment} = Bookings
-    const showAddNewBooking = username !== loggedInUser
+    const { service, level, date, time, duration, name, email, contact, hireOne, hireTwo, hireThree, paid, _id, modified_date, payment} = Bookings
+    const showAddNewBooking = email !== loggedInUser
     const showEditDelete = !showAddNewBooking && getSingleBooking
     return (
         <Fragment>
@@ -34,7 +34,7 @@ const Booking = props => {
                 <Link to={`/bookings/${_id}`}>
                     <h1 data-cy={service}>{service}</h1>
                 </Link> 
-                <p>{username}</p>
+                <p>{name}</p>
                 <p><TimeAgo date={modified_date} /></p> 
                 <p>{service}</p>
                 <p>{level}</p>

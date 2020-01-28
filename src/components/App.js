@@ -19,7 +19,6 @@ import Contact from "./contact/contact";
 import Booking from "./bookings/booking";
 import AddBookingForm from './bookings/addBookingForm'
 import EditBookingForm from './bookings/editBookingForm'
-import Footer from "./footer/Footer";
 import Register from './auth/Register';
 import Login from './auth/Login';
 import Dashboard from './dashboard/Dashboard';
@@ -68,17 +67,15 @@ function App() {
           <Switch>
           <PrivateRoute 
             exact path="/edit-profile"
-            component={CreateProfile}
+            component={EditProfile}
           />
           </Switch>
           <Switch>
-          <PrivateRoute
-            exact path="/booking/:id" component={AddBookingForm}
-            exact path="/booking/edit/:id" component={EditBookingForm}
-            exact path="/booking/delete/:id" component={Booking} 
-           />
+          <PrivateRoute exact path="/booking/:id" component={AddBookingForm} />
+          <PrivateRoute exact path="/booking/edit/:id" component={EditBookingForm} />
+          <PrivateRoute exact path="/booking/delete/:id" component={Booking} />
           </Switch>
-          <Footer />
+        
       </div>
       </Router>
     </div>

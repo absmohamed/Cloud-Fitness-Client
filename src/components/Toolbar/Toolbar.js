@@ -26,7 +26,7 @@ class Toolbar extends Component {
                 <Link to="/dashboard ">
                     <li> Dashboard</li>
                 </Link>
-                <a href="" onClick={this.onLogoutClick.bind(this)}>Logout</a>
+                <div onClick={this.onLogoutClick.bind(this)}>Logout</div>
             </ul>
         )
 

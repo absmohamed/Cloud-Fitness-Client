@@ -20,18 +20,18 @@ const Bookings =  (props) => {
     const queryObj = qs.parse(location.search, { ignoreQueryPrefix: true})
 
     //Unless we are retrieving a single booking, post all bookings (retrieved in App)
-     bookings = bookings
+    let filteredBookings = bookings
     //if we have a booking id, we only want to display the single booking
     if(id) {
-        bookings = getSingleBooking(bookings, id)
+        filteredBookings = getSingleBooking(filteredBookings, id)
     }
     //if we have a query string, filter the bookings
     if(haveQueryParameters(queryObj)) {
-        bookings = getFilteredBookings(bookings, queryObj)
+        filteredBookings = getFilteredBookings(filteredBookings, queryObj)
     }
     return (
 		<div>
-		{bookings.map(booking => (
+		{filteredBookings.map(booking => (
 			<Booking  {...props} key={booking._id} booking={booking} haveSingleBooking={haveSingleBooking(bookings)}  />								
 		))}
 		</div>

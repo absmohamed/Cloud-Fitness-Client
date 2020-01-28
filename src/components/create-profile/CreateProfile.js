@@ -45,7 +45,6 @@ class CreateProfile extends Component {
             level: this.state.level,
             height: this.state.height,
             weight: this.state.weight,
-            handle: this.state.handle,
             gender: this.state.gender,
             location: this.state.location,
             contact: this.state.contact,

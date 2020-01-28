@@ -119,15 +119,15 @@ export const recalculatePayment = async (id, payment) => {
     return totalCost
 }
 export const refundPayment = async (id, payment) => {
-    let refundPayment = 0
+    let refund = 0
     try {
         const booking = await api.delete(`/bookings/${id}`)
         payment = booking.payment
-        refundPayment = payment
+        refund = payment
     }catch(error){
         console.log(`Error processing your refund payment amount`)
     }
-    return refundPayment
+    return refund
 }
 export const updateBookingInBookingsArray = (bookings, updatedBooking) => {
     return bookings.map((booking) => {

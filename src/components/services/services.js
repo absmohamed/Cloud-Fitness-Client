@@ -1,5 +1,4 @@
 import React from 'react';
-import api from "../config/api"
 import "./services.scss";
 import { Link } from 'react-router-dom';
 import Flexandrelax from '../media/flexandrelax.jpg'

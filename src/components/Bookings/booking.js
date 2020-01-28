@@ -1,22 +1,19 @@
-import React, { Fragment } from "./node_modules/react"
-import { Link } from './node_modules/react-router-dom'
-import { useGlobalState } from "../config/store" //needs adding
-import TimeAgo from './node_modules/react-timeago'
-import { removeBooking, refundPayment } from "../../bookingActions.js"
+import React, { Fragment } from "react"
+import { Link } from 'react-router-dom'
+import { useGlobalState } from "../../config/store" //needs adding
+import TimeAgo from 'react-timeago'
+import { removeBooking, refundPayment } from "../../actions/bookingActions.js"
 
-
-registerLocale('en', en);
-setDefaultLocale('en-GB');
 
 const Booking = props => {
     function deleteBooking(id) {
         //delete the book on the server
-        removeBooking(id).then(() => {
-            const Bookings = Bookings.filter((Booking) => booking._id !== id);
+        removeBooking(id).then((bookings) => {
+            const filteredBookings = bookings.filter((booking) => booking._id !== id);
             //Update the state
             dispatch ({
                 type: "setBookings",
-                data: Bookings
+                data: filteredBookings
             })
             //Redirect to my Bookings
             props.history.push(`/bookings/?username=${loggedInUser}`)
@@ -28,14 +25,14 @@ const Booking = props => {
     const { Bookings, getSingleBooking} = props
     const { store, dispatch } = useGlobalState()
     const { loggedInUser } = store
-    const { username, service, level, date, time, duration, name, email, contact, hireOne, hireTwo, hireThree, paid, _id, modified_date} = Bookings
+    const { username, service, level, date, time, duration, name, email, contact, hireOne, hireTwo, hireThree, paid, _id, modified_date, payment} = Bookings
     const showAddNewBooking = username !== loggedInUser
     const showEditDelete = !showAddNewBooking && getSingleBooking
     return (
         <Fragment>
             <section className="content">
                 <Link to={`/bookings/${_id}`}>
-                    <Heading data-cy={service}>{service}</Heading>
+                    <h1 data-cy={service}>{service}</h1>
                 </Link> 
                 <p>{username}</p>
                 <p><TimeAgo date={modified_date} /></p> 
@@ -56,10 +53,10 @@ const Booking = props => {
             {showEditDelete && (
                 
                 <div className="level-right">
-                    <Button className="add-margin" color="info" data-cy="mybookingsButton" onClick={() => props.history.push(`/bookings/mybookings/${_id}`)}>My Bookings</Button>
-                    <Button className="add-margin" color="info" data-cy="editButton" onClick={() => props.history.push(`/bookings/edit/${_id}`)}>Edit</Button>
-                    <Button className="add=margin" color="info" data-cy="refundPayment" onClick={()=> refundPayment}>Refund Payment</Button>
-                    <Button className="add-margin" color="info" data-cy="deleteButton" onClick={() => deleteBooking(_id)(`/bookings/${_id}`)}>Delete</Button>
+                    <button className="add-margin" color="info" data-cy="mybookingsButton" onClick={() => props.history.push(`/bookings/mybookings/${_id}`)}>My Bookings</button>
+                    <button className="add-margin" color="info" data-cy="editButton" onClick={() => props.history.push(`/bookings/edit/${_id}`)}>Edit</button>
+                    <button className="add=margin" color="info" data-cy="refundPayment" onClick={()=> refundPayment}>Refund Payment</button>
+                    <button className="add-margin" color="info" data-cy="deleteButton" onClick={() => deleteBooking(_id)(`/bookings/${_id}`)}>Delete</button>
                 </div>
             )}
         }   

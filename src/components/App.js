@@ -16,9 +16,9 @@ import Services from "./services/services";
 import About from "./about/about";
 import Pricing from "./pricing/pricing";
 import Contact from "./contact/contact";
-import Booking from "./bookings";
-import AddBookingForm from './bookings'
-import EditBookingForm from '.bookings'
+import Booking from "./bookings/booking";
+import AddBookingForm from './bookings/addBookingForm'
+import EditBookingForm from './bookings/editBookingForm'
 import Footer from "./footer/Footer";
 import Register from './auth/Register';
 import Login from './auth/Login';

@@ -1,9 +1,9 @@
 // I think you may need this where you add the bookingAction.js as functions to the api calls,
 //as the  functions are needed for the form the form has it 
 //so not sure if in this file or api file
-import React from './node_modules/react';
+import React from 'react';
 import qs from 'qs'
-import Booking from '../../components/booking'
+import Booking from './booking'
 import {getSingleBooking, getFilteredBookings} from '../../actions/bookingActions';
 
 

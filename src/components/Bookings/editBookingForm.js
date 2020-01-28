@@ -1,19 +1,14 @@
-import React, { useState } from "./node_modules/react"
-import { useGlobalState } from "../config/Store" 
-import TimePicker from './node_modules/react-time-picker/dist/entry.nostyle';
-import DatePicker from "./node_modules/react-datepicker"
-import { registerLocale, setDefaultLocale } from  "./node_modules/react-datepicker";
-import en from './node_modules/date-fns/locale/en';
+import React, { useState } from "react"
+import { useGlobalState } from "../../config/store" 
+import TimePicker from 'react-time-picker'
+import DatePicker from "react-datepicker"
+
 import {
     updateBooking,
     getSingleBooking,
     updateBookingInBookingsArray,
-    recalculatePayment
-} from "../../BookingActions"
+} from "../../actions/bookingActions"
 
-registerLocale('en', en);
-setDefaultLocale('en-GB');
-var totalCost = 0
 
 const EditBookingForm = ({match, history}) => {
     const { store, dispatch } = useGlobalState()
@@ -59,39 +54,36 @@ const EditBookingForm = ({match, history}) => {
             payment: form.payment.value
 
         }
-
-        function onTimeChange(time) {
-            setCurrentTime(time);
-
-        }
-        function onDateChange(date) {
-            setCurrentDate(date);
-        }
-
-    const [currentTime,setCurrentTime] = useState(Date.now);
-    const [currentDate, setCurrentDate] = useState(Date.now);
-    const [modified_date] = useState(Date.now)
-       
         //call to server to add Booking
         updateBooking(updatedBooking)
-            .then(response => {
-                 const updatedBooking = response
+        .then(response => {
+                const updatedBooking = response
 
-            //update the state
-                dispatch({
-                type: "setBookings",
-                data: updateBookingInBookingsArray(Bookings, updatedBooking)
-            })
-            history.push(`/Bookings/${id}`)
+        //update the state
+            dispatch({
+            type: "setBookings",
+            data: updateBookingInBookingsArray(Bookings, updatedBooking)
+        })
+        history.push(`/Bookings/${id}`)
         })
         .catch(error => {
             console.log(`An error occurred updating the Booking with id ${id}: ${error}`)
             history.push(`/Bookings/?username=${loggedInUser}`)
         })
-                    
+        
     }
-   
-    
+
+    function onTimeChange(time) {
+        setCurrentTime(time);
+
+    }
+    function onDateChange(date) {
+        setCurrentDate(date);
+    }
+
+    const [currentTime,setCurrentTime] = useState(Date.now);
+    const [currentDate, setCurrentDate] = useState(Date.now);
+    const [modified_date] = useState(Date.now)
 
     function handleChange(event) {
         const target = event.target
@@ -106,9 +98,9 @@ const EditBookingForm = ({match, history}) => {
         <section>
         <form data-cy="editBookingForm" onSubmit={editBooking}>
             <h2>Edit Booking</h2>
-            <h2 data-cy={"service"}>{service}</h2>
-            <p data-cy={"modified_date"}>{modified_date}</p>
-            <p data-cy={"paid"}>{paid}</p>
+            <h2 data-cy={"service"}>{values.service}</h2>
+            <p data-cy={"modified_date"}>{values.modified_date}</p>
+            <p data-cy={"paid"}>{values.paid}</p>
 
             <div>
             <label className="label">Service</label>
@@ -118,7 +110,7 @@ const EditBookingForm = ({match, history}) => {
                 name="service"
                 data-cy="service"
                 required
-                value={value.service}
+                value={values.service}
                 onChange={handleChange}>
                 </option>
             </select>
@@ -149,7 +141,7 @@ const EditBookingForm = ({match, history}) => {
                     className="duration"
                     name="duration"
                     data-cy="duration"
-                    selected value={ Number, value.duration}
+                    selected value={ Number, values.duration}
                     onChange={handleChange}>
                 </option>
                 <option name="duration" data-cy="duration" value={Number}>20</option>
@@ -166,7 +158,7 @@ const EditBookingForm = ({match, history}) => {
                 data-cy="name"
                 name="name"
                 placeholder=" firts and last name (required)"
-                value={value.name}>
+                value={values.name}>
         </input>
             </div>
             <div>
@@ -177,7 +169,7 @@ const EditBookingForm = ({match, history}) => {
                 data-cy="email"
                 name="email"
                 placeholder="email (required)"
-                value={value.name}>
+                value={values.name}>
         </input>
             </div>
             <div>
@@ -188,7 +180,7 @@ const EditBookingForm = ({match, history}) => {
                 data-cy="contact"
                 name="contact"
                 placeholder="contact (required)"
-                value={value.contact}>
+                value={values.contact}>
             </input>
             </div>
             <div>
@@ -202,7 +194,7 @@ const EditBookingForm = ({match, history}) => {
                     className="hireOne"
                     name="hireOne"
                     data-cy="hireOne"
-                    selected value={value.hireOne}
+                    selected value={values.hireOne}
                     onChange={handleChange}>
                 </option>
             <option name="hireOne" data-cy="hireThree" selected value="null">null</option>
@@ -222,7 +214,7 @@ const EditBookingForm = ({match, history}) => {
                     className="hireTwo"
                     name="hireTwo"
                     data-cy="hireTwo"
-                    selected value={value.hireTwo}
+                    selected value={values.hireTwo}
                     onChange={handleChange}>
                 </option>
                 <option name="hireTwo" data-cy="hireTwo" selected value="null">null</option>
@@ -242,7 +234,7 @@ const EditBookingForm = ({match, history}) => {
                     className="hireThree"
                     name="hireThree"
                     data-cy="hireThree"
-                    selected value={value.hireThree}
+                    selected value={values.hireThree}
                     onChange={handleChange}>
                 </option>
                 <option name="hireThree" data-cy="hireThree" selected value="null">null</option>
@@ -255,9 +247,7 @@ const EditBookingForm = ({match, history}) => {
             </div>
         </div>
         <div>
-            <p>Please make payment of your selections before submitting your Bookings</p><button  data-cy="recalculate-payment"  value={totalCost} onClick={() => recalculatePayment}>Recalculating Payment</button> 
-            <p data-cy={"totalCost"}>Your Total: &#36; {totalCost}</p><button classsName='bg-btn'>Pay Now</button>
-            <p data-cy={"paid"}>Paid: {paid}</p>
+           
             <input
 				type="submit"
 				data-cy="addButton"

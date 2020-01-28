@@ -9,7 +9,7 @@ import TextFieldGroup from '../common/TextFieldGroup';
 import './register.scss'
 
 
-class Register extends Component {
+class Register extends Component {  
     // Component state. Adding constructor to our class.
     constructor() {
         super();

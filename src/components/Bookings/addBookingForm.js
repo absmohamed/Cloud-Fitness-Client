@@ -1,14 +1,10 @@
-import React, {useState, Fragment} from "./node_modules/react"
-import api from "../config/api"
-import TimePicker from "./node_modules/react-time-picker/dist/entry.nostyle"
-import DatePicker from "./node_modules/react-datepicker"
-import { registerLocale, setDefaultLocale } from  "./node_modules/react-datepicker"
-import en from './node_modules/date-fns/locale/en'
-import { calculatePayment} from "../../actions/bookingActions"
-var totalCost = 0
+import React, {useState, Fragment} from "react"
+import TimePicker from "react-time-picker"
+import DatePicker from "react-datepicker"
+
+
 var Booking = null
-registerLocale('en', en);
-setDefaultLocale('en-GB');
+
 const AddBookingForm = (props) => {
     const {addNewBooking} = props;
     
@@ -24,8 +20,8 @@ const AddBookingForm = (props) => {
     }
     const [currentTime,setCurrentTime] = useState(Date.now);
     const [currentDate, setCurrentDate] = useState(Date.now);
-    const {service, paid} = Booking
-    const total = totalCost
+    const {service} = Booking
+
     return (
         <Fragment>
         <section className="content">
@@ -149,9 +145,7 @@ const AddBookingForm = (props) => {
                 </div>
             </div>
             <div>
-            <p>Please make payment of your selections before submitting your bookings</p><button  data-cy="calculate-payment"  value={totalCost} onClick={() => calculatePayment}>Total Selections</button> 
-            <p>Your Total: &#36; {totalCost}</p><button classsName='bg-btn'>Pay Now</button>
-            <p data-cy="paid">Paid: {paid}</p>
+            
             <input
                 type="submit"
                 data-cy="addButton"
